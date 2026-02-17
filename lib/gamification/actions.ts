@@ -1,227 +1,175 @@
 'use server'
 
-import { createClient } from '@/lib/supabase/server'
 import type { UserGamification, LessonProgress, DailyChallenge } from './types'
-import { getLevelFromXp, getXpForLevel } from './lesson-mapper'
+import { getLevelFromXp } from './lesson-mapper'
+import {
+  getUserGamification as getGamificationFromDb,
+  awardXp as awardXpToDb,
+  loseHeart as loseHeartFromDb,
+  updateLessonProgress as updateLessonProgressInDb,
+  getLessonProgress as getLessonProgressFromDb,
+  getAllLessonProgress as getAllLessonProgressFromDb,
+  recordQuestionAttempt as recordQuestionAttemptInDb,
+  updateStreak as updateStreakInDb,
+  getDailyChallenges as getDailyChallengesFromDb,
+  updateDailyChallengeProgress as updateDailyChallengeProgressInDb
+} from '@/lib/aws/db-operations'
 
 // Initialize user gamification profile
 export async function initializeUserGamification(userId: string): Promise<UserGamification | null> {
-  const supabase = await createClient()
-  
-  const { data, error } = await supabase
-    .from('user_gamification')
-    .select('*')
-    .eq('user_id', userId)
-    .single()
-
-  if (data) return data
-
-  // Create new profile
-  const { data: newProfile, error: createError } = await supabase
-    .from('user_gamification')
-    .insert({
-      user_id: userId,
-      xp: 0,
-      total_xp: 0,
-      level: 1,
-      hearts: 5,
-      max_hearts: 5,
-      streak_days: 0,
-      gems: 0,
-      league: 'bronze',
-      league_position: 0
-    })
-    .select()
-    .single()
-
-  return newProfile || null
+  try {
+    const gamification = await getGamificationFromDb(userId)
+    return gamification as UserGamification | null
+  } catch (error) {
+    console.error('Error initializing gamification:', error)
+    return null
+  }
 }
 
 // Get user gamification data
 export async function getUserGamification(userId: string): Promise<UserGamification | null> {
-  const supabase = await createClient()
-  
-  const { data } = await supabase
-    .from('user_gamification')
-    .select('*')
-    .eq('user_id', userId)
-    .single()
-
-  if (!data) {
-    return await initializeUserGamification(userId)
+  try {
+    const data = await getGamificationFromDb(userId)
+    return data as UserGamification | null
+  } catch (error) {
+    console.error('Error getting gamification:', error)
+    return null
   }
-
-  return data
 }
 
 // Update streak
 export async function updateStreak(userId: string): Promise<{ streakDays: number; isNewDay: boolean }> {
-  const supabase = await createClient()
-  
-  const { data: profile } = await supabase
-    .from('user_gamification')
-    .select('*')
-    .eq('user_id', userId)
-    .single()
-
-  if (!profile) return { streakDays: 0, isNewDay: false }
-
-  const today = new Date().toISOString().split('T')[0]
-  const lastActivity = profile.last_activity_date?.split('T')[0]
-
-  if (lastActivity === today) {
-    return { streakDays: profile.streak_days, isNewDay: false }
+  try {
+    const result = await updateStreakInDb(userId)
+    return {
+      streakDays: result?.current_streak || 0,
+      isNewDay: true
+    }
+  } catch (error) {
+    console.error('Error updating streak:', error)
+    return { streakDays: 0, isNewDay: false }
   }
-
-  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0]
-  const newStreak = lastActivity === yesterday ? profile.streak_days + 1 : 1
-
-  await supabase
-    .from('user_gamification')
-    .update({
-      streak_days: newStreak,
-      last_activity_date: new Date().toISOString()
-    })
-    .eq('user_id', userId)
-
-  return { streakDays: newStreak, isNewDay: true }
 }
 
 // Award XP
 export async function awardXp(userId: string, xp: number): Promise<{ newXp: number; levelUp: boolean; newLevel?: number }> {
-  const supabase = await createClient()
-  
-  const { data: profile } = await supabase
-    .from('user_gamification')
-    .select('*')
-    .eq('user_id', userId)
-    .single()
-
-  if (!profile) return { newXp: 0, levelUp: false }
-
-  const newXp = profile.xp + xp
-  const newTotalXp = profile.total_xp + xp
-  const currentLevel = profile.level
-  const newLevel = getLevelFromXp(newTotalXp)
-  const levelUp = newLevel > currentLevel
-
-  await supabase
-    .from('user_gamification')
-    .update({
-      xp: newXp,
-      total_xp: newTotalXp,
-      level: newLevel
-    })
-    .eq('user_id', userId)
-
-  return { newXp, levelUp, newLevel: levelUp ? newLevel : undefined }
+  try {
+    const result = await awardXpToDb(userId, xp)
+    return {
+      newXp: result?.xp || 0,
+      levelUp: false,
+      newLevel: undefined
+    }
+  } catch (error) {
+    console.error('Error awarding XP:', error)
+    return { newXp: 0, levelUp: false }
+  }
 }
 
 // Lose a heart
 export async function loseHeart(userId: string): Promise<{ heartsRemaining: number; gameOver: boolean }> {
-  const supabase = await createClient()
-  
-  const { data: profile } = await supabase
-    .from('user_gamification')
-    .select('*')
-    .eq('user_id', userId)
-    .single()
-
-  if (!profile) return { heartsRemaining: 0, gameOver: true }
-
-  const newHearts = Math.max(0, profile.hearts - 1)
-  const gameOver = newHearts === 0
-
-  await supabase
-    .from('user_gamification')
-    .update({ hearts: newHearts })
-    .eq('user_id', userId)
-
-  return { heartsRemaining: newHearts, gameOver }
+  try {
+    const result = await loseHeartFromDb(userId)
+    return {
+      heartsRemaining: result.heartsRemaining,
+      gameOver: result.gameOver
+    }
+  } catch (error) {
+    console.error('Error losing heart:', error)
+    return { heartsRemaining: 0, gameOver: true }
+  }
 }
 
-// Refill hearts
+// Refill hearts (simplified for AWS - would need gem purchase logic)
 export async function refillHearts(userId: string): Promise<boolean> {
-  const supabase = await createClient()
-  
-  const { error } = await supabase
-    .from('user_gamification')
-    .update({ hearts: 5 })
-    .eq('user_id', userId)
-
-  return !error
+  try {
+    const client = await import('@/lib/aws/clients').then(m => m.pgPool)
+    const dbClient = await client.connect()
+    try {
+      await dbClient.query(
+        'UPDATE user_gamification SET hearts = max_hearts WHERE user_id = (SELECT id FROM users WHERE cognito_user_id = $1)',
+        [userId]
+      )
+      return true
+    } finally {
+      dbClient.release()
+    }
+  } catch (error) {
+    console.error('Error refilling hearts:', error)
+    return false
+  }
 }
 
 // Award gems
 export async function awardGems(userId: string, gems: number): Promise<number> {
-  const supabase = await createClient()
-  
-  const { data: profile } = await supabase
-    .from('user_gamification')
-    .select('gems')
-    .eq('user_id', userId)
-    .single()
-
-  if (!profile) return 0
-
-  const newGems = profile.gems + gems
-
-  await supabase
-    .from('user_gamification')
-    .update({ gems: newGems })
-    .eq('user_id', userId)
-
-  return newGems
+  try {
+    const client = await import('@/lib/aws/clients').then(m => m.pgPool)
+    const dbClient = await client.connect()
+    try {
+      const result = await dbClient.query(
+        'UPDATE user_gamification SET gems = gems + $1 WHERE user_id = (SELECT id FROM users WHERE cognito_user_id = $2) RETURNING gems',
+        [gems, userId]
+      )
+      return result.rows[0]?.gems || 0
+    } finally {
+      dbClient.release()
+    }
+  } catch (error) {
+    console.error('Error awarding gems:', error)
+    return 0
+  }
 }
 
 // Spend gems
 export async function spendGems(userId: string, gems: number): Promise<{ success: boolean; remainingGems: number }> {
-  const supabase = await createClient()
-  
-  const { data: profile } = await supabase
-    .from('user_gamification')
-    .select('gems')
-    .eq('user_id', userId)
-    .single()
-
-  if (!profile || profile.gems < gems) {
-    return { success: false, remainingGems: profile?.gems || 0 }
+  try {
+    const client = await import('@/lib/aws/clients').then(m => m.pgPool)
+    const dbClient = await client.connect()
+    try {
+      const checkResult = await dbClient.query(
+        'SELECT gems FROM user_gamification WHERE user_id = (SELECT id FROM users WHERE cognito_user_id = $1)',
+        [userId]
+      )
+      
+      const currentGems = checkResult.rows[0]?.gems || 0
+      if (currentGems < gems) {
+        return { success: false, remainingGems: currentGems }
+      }
+      
+      const result = await dbClient.query(
+        'UPDATE user_gamification SET gems = gems - $1 WHERE user_id = (SELECT id FROM users WHERE cognito_user_id = $2) RETURNING gems',
+        [gems, userId]
+      )
+      return { success: true, remainingGems: result.rows[0]?.gems || 0 }
+    } finally {
+      dbClient.release()
+    }
+  } catch (error) {
+    console.error('Error spending gems:', error)
+    return { success: false, remainingGems: 0 }
   }
-
-  const newGems = profile.gems - gems
-
-  await supabase
-    .from('user_gamification')
-    .update({ gems: newGems })
-    .eq('user_id', userId)
-
-  return { success: true, remainingGems: newGems }
 }
 
 // Get lesson progress
 export async function getLessonProgress(userId: string, lessonId: string): Promise<LessonProgress | null> {
-  const supabase = await createClient()
-  
-  const { data } = await supabase
-    .from('lesson_progress')
-    .select('*')
-    .eq('user_id', userId)
-    .eq('lesson_id', lessonId)
-    .single()
-
-  return data
+  try {
+    const data = await getLessonProgressFromDb(userId, lessonId)
+    return data as LessonProgress | null
+  } catch (error) {
+    console.error('Error getting lesson progress:', error)
+    return null
+  }
 }
 
 // Get all lesson progress for user
 export async function getAllLessonProgress(userId: string): Promise<LessonProgress[]> {
-  const supabase = await createClient()
-  
-  const { data } = await supabase
-    .from('lesson_progress')
-    .select('*')
-    .eq('user_id', userId)
-
-  return data || []
+  try {
+    const data = await getAllLessonProgressFromDb(userId)
+    return data as LessonProgress[]
+  } catch (error) {
+    console.error('Error getting all lesson progress:', error)
+    return []
+  }
 }
 
 // Update lesson progress
@@ -231,44 +179,19 @@ export async function updateLessonProgress(
   unitId: string,
   updates: Partial<LessonProgress>
 ): Promise<LessonProgress | null> {
-  const supabase = await createClient()
-  
-  const { data: existing } = await supabase
-    .from('lesson_progress')
-    .select('*')
-    .eq('user_id', userId)
-    .eq('lesson_id', lessonId)
-    .single()
-
-  if (existing) {
-    const { data } = await supabase
-      .from('lesson_progress')
-      .update(updates)
-      .eq('user_id', userId)
-      .eq('lesson_id', lessonId)
-      .select()
-      .single()
-    
-    return data
-  }
-
-  // Create new progress
-  const { data } = await supabase
-    .from('lesson_progress')
-    .insert({
-      user_id: userId,
-      lesson_id: lessonId,
-      unit_id: unitId,
-      status: 'unlocked',
-      stars: 0,
-      xp_earned: 0,
-      attempts: 0,
-      ...updates
+  try {
+    const data = await updateLessonProgressInDb(userId, lessonId, unitId, {
+      status: updates.status || 'completed',
+      stars: updates.stars || 0,
+      xp_earned: updates.xp_earned || 0,
+      completion_date: updates.completion_date,
+      attempts: updates.attempts
     })
-    .select()
-    .single()
-
-  return data
+    return data as LessonProgress | null
+  } catch (error) {
+    console.error('Error updating lesson progress:', error)
+    return null
+  }
 }
 
 // Record question attempt
@@ -280,61 +203,22 @@ export async function recordQuestionAttempt(
   timeTaken: number,
   heartLost: boolean
 ): Promise<void> {
-  const supabase = await createClient()
-  
-  await supabase
-    .from('question_attempts')
-    .insert({
-      user_id: userId,
-      question_id: questionId,
-      lesson_id: lessonId,
-      is_correct: isCorrect,
-      time_taken_seconds: timeTaken,
-      heart_lost: heartLost
-    })
+  try {
+    await recordQuestionAttemptInDb(userId, questionId, lessonId, isCorrect, timeTaken, heartLost)
+  } catch (error) {
+    console.error('Error recording question attempt:', error)
+  }
 }
 
 // Get daily challenges
 export async function getDailyChallenges(userId: string): Promise<DailyChallenge[]> {
-  const supabase = await createClient()
-  const today = new Date().toISOString().split('T')[0]
-  
-  const { data } = await supabase
-    .from('daily_challenges')
-    .select('*')
-    .eq('user_id', userId)
-    .eq('challenge_date', today)
-
-  if (data && data.length > 0) return data
-
-  // Create today's challenges
-  const challenges = [
-    {
-      user_id: userId,
-      challenge_type: 'xp_goal',
-      target_value: 50,
-      current_value: 0,
-      is_completed: false,
-      reward_gems: 5,
-      challenge_date: today
-    },
-    {
-      user_id: userId,
-      challenge_type: 'lessons_completed',
-      target_value: 3,
-      current_value: 0,
-      is_completed: false,
-      reward_gems: 10,
-      challenge_date: today
-    }
-  ]
-
-  const { data: newChallenges } = await supabase
-    .from('daily_challenges')
-    .insert(challenges)
-    .select()
-
-  return newChallenges || []
+  try {
+    const data = await getDailyChallengesFromDb(userId)
+    return data as DailyChallenge[]
+  } catch (error) {
+    console.error('Error getting daily challenges:', error)
+    return []
+  }
 }
 
 // Update daily challenge progress
@@ -343,32 +227,9 @@ export async function updateDailyChallengeProgress(
   challengeType: string,
   increment: number
 ): Promise<void> {
-  const supabase = await createClient()
-  const today = new Date().toISOString().split('T')[0]
-  
-  const { data: challenge } = await supabase
-    .from('daily_challenges')
-    .select('*')
-    .eq('user_id', userId)
-    .eq('challenge_type', challengeType)
-    .eq('challenge_date', today)
-    .single()
-
-  if (!challenge) return
-
-  const newValue = challenge.current_value + increment
-  const isCompleted = newValue >= challenge.target_value
-
-  await supabase
-    .from('daily_challenges')
-    .update({
-      current_value: newValue,
-      is_completed: isCompleted,
-      completed_at: isCompleted ? new Date().toISOString() : null
-    })
-    .eq('id', challenge.id)
-
-  if (isCompleted && !challenge.is_completed) {
-    await awardGems(userId, challenge.reward_gems)
+  try {
+    await updateDailyChallengeProgressInDb(userId, challengeType, increment)
+  } catch (error) {
+    console.error('Error updating daily challenge progress:', error)
   }
 }
