@@ -17,6 +17,7 @@ import {
   TrendingDown,
   CheckCircle2,
   AlertTriangle,
+  BookOpen
 } from "lucide-react"
 import { DOMAINS, SCENARIOS } from "@/lib/scenarios"
 import type { DomainProgress, SessionStats, QuizResult, StudyPlan, PreparednessData } from "@/lib/study-types"
@@ -32,6 +33,8 @@ type DashboardProps = {
   onReset: () => void
   onExport: () => void
   onEditPlan: () => void
+  onStartExamSim: () => void
+  onShowReferenceCharts: () => void
 }
 
 const DEFAULT_SESSION_STATS: SessionStats = {
@@ -54,6 +57,8 @@ export function Dashboard({
   onReset,
   onExport,
   onEditPlan,
+  onStartExamSim, // Use the onStartExamSim variable here
+  onShowReferenceCharts
 }: DashboardProps) {
   const stats = sessionStats ?? DEFAULT_SESSION_STATS
 
@@ -359,7 +364,15 @@ export function Dashboard({
               <CardTitle className="text-lg">Actions</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <Button onClick={onExport} variant="outline" className="w-full bg-transparent">
+              <Button onClick={onStartExamSim} className="w-full min-h-[44px] bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                <Target className="w-4 h-4 mr-2" />
+                Exam Simulation (65 questions, 65 minutes)
+              </Button>
+              <Button onClick={onShowReferenceCharts} variant="outline" className="w-full min-h-[44px] bg-transparent">
+                <BookOpen className="w-4 h-4 mr-2" />
+                Service Comparison Charts
+              </Button>
+              <Button onClick={onExport} variant="outline" className="w-full min-h-[44px] bg-transparent">
                 <Download className="w-4 h-4 mr-2" />
                 Export Progress
               </Button>
@@ -368,7 +381,7 @@ export function Dashboard({
                 Reset All Progress
               </Button>
               <p className="text-xs text-muted-foreground text-center">
-                Export saves your progress as JSON. Reset clears all data.
+                Exam simulation mimics the real AWS exam conditions.
               </p>
             </CardContent>
           </Card>

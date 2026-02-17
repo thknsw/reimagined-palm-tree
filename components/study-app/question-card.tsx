@@ -163,13 +163,13 @@ export function QuestionCard({
                   return (
                     <div
                       key={index}
-                      className={`flex items-start space-x-3 p-3 md:p-4 rounded-lg border-2 transition-all ${bgColor} ${
-                        !showFeedback ? "cursor-pointer active:scale-[0.99]" : "cursor-default"
+                      className={`flex items-start space-x-3 p-4 min-h-[44px] rounded-lg border-2 transition-all ${bgColor} ${
+                        !showFeedback ? "cursor-pointer active:scale-[0.98]" : "cursor-default"
                       }`}
                       onClick={() => handleMultiSelectToggle(index)}
                     >
                       <Checkbox checked={isSelected} disabled={showFeedback} className="mt-0.5" />
-                      <span className={`flex-1 text-sm leading-relaxed ${textColor}`}>{option}</span>
+                      <span className={`flex-1 text-sm md:text-base leading-relaxed ${textColor}`}>{option}</span>
                     </div>
                   )
                 })}
@@ -198,8 +198,8 @@ export function QuestionCard({
                   return (
                     <div
                       key={index}
-                      className={`flex items-start space-x-3 p-3 md:p-4 rounded-lg border-2 transition-all ${bgColor} ${
-                        !showFeedback ? "cursor-pointer active:scale-[0.99]" : "cursor-default"
+                      className={`flex items-start space-x-3 p-4 min-h-[44px] rounded-lg border-2 transition-all ${bgColor} ${
+                        !showFeedback ? "cursor-pointer active:scale-[0.98]" : "cursor-default"
                       }`}
                       onClick={() => !showFeedback && onAnswerSelect(index)}
                     >
@@ -211,7 +211,7 @@ export function QuestionCard({
                       />
                       <Label
                         htmlFor={`option-${index}`}
-                        className={`flex-1 cursor-pointer text-sm leading-relaxed ${textColor}`}
+                        className={`flex-1 cursor-pointer text-sm md:text-base leading-relaxed ${textColor}`}
                       >
                         {option}
                       </Label>
@@ -226,7 +226,7 @@ export function QuestionCard({
             <Button
               onClick={onSubmit}
               disabled={!hasAnswer}
-              className="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-5 text-base font-semibold"
+              className="w-full bg-accent hover:bg-accent/90 text-accent-foreground min-h-[44px] py-3 text-base font-semibold"
             >
               {submitLabel}
             </Button>
@@ -285,7 +285,7 @@ export function QuestionCard({
 
               <Button
                 onClick={onNext}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-5 text-base font-semibold"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground min-h-[44px] py-3 text-base font-semibold"
               >
                 Next Question
                 <ChevronRight className="w-5 h-5 ml-1" />

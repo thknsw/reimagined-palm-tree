@@ -4,7 +4,10 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, AlertTriangle, Clock, BookOpen, Lightbulb, ChevronDown, ChevronUp } from "lucide-react"
-import { EXAM_TIPS, GLOSSARY_TERMS, CAF_PERSPECTIVES, type ExamTip } from "@/lib/study-types"
+import { EXAM_TIPS, GLOSSARY_TERMS, CAF_PERSPECTIVES, ALL_FLASHCARD_TERMS, type ExamTip } from "@/lib/study-types"
+
+// Export ALL_FLASHCARD_TERMS as ACRONYMS for use in flashcards (includes acronyms + AWS service fundamentals)
+export const ACRONYMS = ALL_FLASHCARD_TERMS
 
 type ExamTipsProps = {
   onBack: () => void

@@ -28,6 +28,7 @@ type HeaderProps = {
   onShowExamTips?: () => void
   onShowAchievements?: () => void
   onShowServiceCompare?: () => void
+  onShowFlashcards?: () => void
   unlockedBadgeCount?: number
 }
 
@@ -41,6 +42,7 @@ export function Header({
   onShowExamTips,
   onShowAchievements,
   onShowServiceCompare,
+  onShowFlashcards,
   unlockedBadgeCount = 0,
 }: HeaderProps) {
   const formatTime = (seconds: number) => {
@@ -101,6 +103,17 @@ export function Header({
               >
                 <ArrowLeftRight className="w-4 h-4 mr-2" />
                 Compare
+              </Button>
+            )}
+            {onShowFlashcards && (
+              <Button
+                onClick={onShowFlashcards}
+                variant="ghost"
+                size="sm"
+                className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10 hidden md:flex"
+              >
+                <BookA className="w-4 h-4 mr-2" />
+                Flashcards
               </Button>
             )}
             {onShowExamTips && (

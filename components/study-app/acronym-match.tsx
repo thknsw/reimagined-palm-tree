@@ -4,7 +4,7 @@ import { useState, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, Shuffle, Trophy, RotateCcw, CheckCircle, XCircle } from "lucide-react"
-import { GLOSSARY_TERMS } from "@/lib/study-types"
+import { ACRONYMS } from "./exam-tips"
 
 type AcronymMatchProps = {
   onBack: () => void
@@ -32,33 +32,36 @@ export function AcronymMatch({ onBack, onComplete }: AcronymMatchProps) {
   const [flashcardIndex, setFlashcardIndex] = useState(0)
   const [showAnswer, setShowAnswer] = useState(false)
   const [flashcardScore, setFlashcardScore] = useState({ correct: 0, incorrect: 0 })
-  const [shuffledTerms, setShuffledTerms] = useState(GLOSSARY_TERMS)
+  const [shuffledTerms, setShuffledTerms] = useState(ACRONYMS)
   const [category, setCategory] = useState<string>("all")
 
-  const categories = ["all", ...new Set(GLOSSARY_TERMS.map((t) => t.category))]
+  console.log("[v0] ACRONYMS loaded:", ACRONYMS.length, "terms")
+  console.log("[v0] Sample term:", ACRONYMS[0])
+  
+  const categories = ["all", ...new Set(ACRONYMS.map((t) => t.category))]
 
   const initMatchGame = useCallback(
     (pairCount = 6) => {
-      const filteredTerms = category === "all" ? GLOSSARY_TERMS : GLOSSARY_TERMS.filter((t) => t.category === category)
+      const filteredTerms = category === "all" ? ACRONYMS : ACRONYMS.filter((t) => t.category === category)
 
       const shuffled = [...filteredTerms].sort(() => Math.random() - 0.5)
       const selected = shuffled.slice(0, Math.min(pairCount, shuffled.length))
 
       const acronyms: MatchItem[] = selected.map((term) => ({
-        id: `a-${term.acronym}`,
+        id: `a-${term.term}`,
         type: "acronym",
-        text: term.acronym,
-        matchId: term.acronym,
+        text: term.term,
+        matchId: term.term,
         selected: false,
         matched: false,
         incorrect: false,
       }))
 
       const definitions: MatchItem[] = selected.map((term) => ({
-        id: `d-${term.acronym}`,
+        id: `d-${term.term}`,
         type: "definition",
-        text: term.fullName,
-        matchId: term.acronym,
+        text: term.definition.length > 100 ? term.definition.substring(0, 100) + '...' : term.definition,
+        matchId: term.term,
         selected: false,
         matched: false,
         incorrect: false,
@@ -79,7 +82,7 @@ export function AcronymMatch({ onBack, onComplete }: AcronymMatchProps) {
   )
 
   const initFlashcards = useCallback(() => {
-    const filteredTerms = category === "all" ? GLOSSARY_TERMS : GLOSSARY_TERMS.filter((t) => t.category === category)
+    const filteredTerms = category === "all" ? ACRONYMS : ACRONYMS.filter((t) => t.category === category)
     const shuffled = [...filteredTerms].sort(() => Math.random() - 0.5)
     setShuffledTerms(shuffled)
     setFlashcardIndex(0)
@@ -199,17 +202,16 @@ export function AcronymMatch({ onBack, onComplete }: AcronymMatchProps) {
             <CardContent className="p-6 space-y-4">
               <h2 className="text-lg font-semibold">Choose Category</h2>
               <div className="flex flex-wrap gap-2">
-                {categories.map((cat) => (
-                  <Button
-                    key={cat}
-                    variant={category === cat ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => setCategory(cat)}
-                    className="capitalize"
-                  >
-                    {cat}
-                  </Button>
-                ))}
+            {categories.map((cat) => (
+              <Button
+                key={cat}
+                variant={category === cat ? "default" : "outline"}
+                onClick={() => setCategory(cat)}
+                className="capitalize min-h-[44px]"
+              >
+                {cat === "all" ? "All" : cat}
+              </Button>
+            ))}
               </div>
             </CardContent>
           </Card>
@@ -239,8 +241,8 @@ export function AcronymMatch({ onBack, onComplete }: AcronymMatchProps) {
                   <p className="text-sm text-muted-foreground">
                     Review all{" "}
                     {category === "all"
-                      ? GLOSSARY_TERMS.length
-                      : GLOSSARY_TERMS.filter((t) => t.category === category).length}{" "}
+                      ? ACRONYMS.length
+                      : ACRONYMS.filter((t) => t.category === category).length}{" "}
                     terms one by one
                   </p>
                 </div>
@@ -249,7 +251,7 @@ export function AcronymMatch({ onBack, onComplete }: AcronymMatchProps) {
           </Card>
 
           <div className="text-center text-sm text-muted-foreground">
-            {GLOSSARY_TERMS.length} acronyms & terms to master
+            {ACRONYMS.length} acronyms & terms to master
           </div>
         </main>
       </div>
@@ -372,12 +374,11 @@ export function AcronymMatch({ onBack, onComplete }: AcronymMatchProps) {
             onClick={() => !showAnswer && setShowAnswer(true)}
           >
             <CardContent className="p-8 text-center">
-              <p className="text-4xl font-mono font-bold text-accent mb-4">{currentTerm.acronym}</p>
+              <p className="text-4xl font-mono font-bold text-accent mb-4">{currentTerm.term}</p>
 
               {showAnswer ? (
                 <div className="space-y-3 animate-in fade-in slide-in-from-bottom-2">
-                  <p className="text-xl font-semibold">{currentTerm.fullName}</p>
-                  <p className="text-muted-foreground">{currentTerm.description}</p>
+                  <p className="text-lg text-muted-foreground leading-relaxed">{currentTerm.definition}</p>
                   <span className="inline-block text-xs bg-secondary px-2 py-1 rounded-full capitalize">
                     {currentTerm.category}
                   </span>

@@ -2188,4 +2188,2165 @@ export const SCENARIOS: Scenario[] = [
     relatedServices: ["CodePipeline", "CodeBuild", "CodeDeploy", "CodeCommit"],
     tags: ["devops", "cicd", "codepipeline", "codebuild", "multi-select"],
   },
+  // ADDITIONAL PRACTICE QUESTIONS FROM USER SUBMISSIONS
+  {
+    id: "106",
+    domain: "Billing, Pricing and Support",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS Support plan provides architectural guidance contextual to your specific use-cases?",
+    options: [
+      "AWS Developer Support",
+      "AWS Enterprise On-Ramp Support",
+      "AWS Business Support",
+      "AWS Enterprise Support",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "AWS Business Support provides architectural guidance contextual to your specific use-cases through access to AWS Support Engineers. It also includes third-party software support, faster response times, and full access to Trusted Advisor checks - making it ideal for production workloads.",
+    incorrectExplanations: [
+      "Developer Support provides general guidance but not contextual architectural guidance.",
+      "Enterprise On-Ramp has architectural support but Business Support is the minimum tier for contextual guidance.",
+      "Enterprise Support offers the most comprehensive architectural guidance but Business meets the requirement.",
+    ],
+    relatedServices: ["AWS Support", "Trusted Advisor"],
+    tags: ["support", "business-support", "architecture"],
+  },
+  {
+    id: "107",
+    domain: "Billing, Pricing and Support",
+    difficulty: "intermediate",
+    scenario:
+      "A multi-national corporation wants to get expert professional advice on migrating to AWS and managing their applications on AWS Cloud. Which of the following entities would you recommend for this engagement?",
+    options: [
+      "AWS Trusted Advisor",
+      "APN Technology Partner",
+      "Concierge Support Team",
+      "APN Consulting Partner",
+    ],
+    correctAnswer: 3,
+    explanation:
+      "APN Consulting Partners are professional services firms that help customers design, architect, build, migrate, and manage workloads on AWS. They provide deep expertise in cloud migration and application management, making them ideal for comprehensive multi-national migration projects.",
+    incorrectExplanations: [
+      "Trusted Advisor provides automated best practice checks, not migration consulting.",
+      "Technology Partners provide software solutions, not consulting services.",
+      "Concierge Support Team assists with billing and accounts for Enterprise Support customers.",
+    ],
+    relatedServices: ["AWS Partner Network", "AWS Professional Services"],
+    tags: ["partners", "consulting", "migration"],
+  },
+  {
+    id: "108",
+    domain: "Billing, Pricing and Support",
+    difficulty: "advanced",
+    scenario:
+      "Which of the following AWS Support plans provide access to guidance, configuration, and troubleshooting of AWS interoperability with third-party software? (Select two)",
+    options: [
+      "AWS Developer Support",
+      "AWS Business Support",
+      "AWS Corporate Support",
+      "AWS Basic Support",
+      "AWS Enterprise Support",
+    ],
+    correctAnswer: [1, 4],
+    isMultiSelect: true,
+    selectCount: 2,
+    explanation:
+      "AWS Business Support and AWS Enterprise Support both provide access to guidance, configuration, and troubleshooting of AWS interoperability with third-party software. This includes popular technologies like databases, web servers, and application frameworks. Developer and Basic Support do not include third-party software support.",
+    incorrectExplanations: [
+      "Developer Support does not include third-party software troubleshooting.",
+      "Corporate Support is not a real AWS Support plan.",
+      "Basic Support includes no technical support access.",
+    ],
+    relatedServices: ["AWS Support"],
+    tags: ["support", "third-party", "business-support", "enterprise-support", "multi-select"],
+  },
+  {
+    id: "109",
+    domain: "Billing, Pricing and Support",
+    difficulty: "intermediate",
+    scenario:
+      "Which of the following AWS Support plans provide access to only core checks from the AWS Trusted Advisor Best Practice Checks? (Select two)",
+    options: [
+      "AWS Business Support",
+      "AWS Enterprise Support",
+      "AWS Developer Support",
+      "AWS Enterprise On-Ramp Support",
+      "AWS Basic Support",
+    ],
+    correctAnswer: [2, 4],
+    isMultiSelect: true,
+    selectCount: 2,
+    explanation:
+      "AWS Basic Support and AWS Developer Support provide access to only 7 core Trusted Advisor checks (S3 bucket permissions, security groups, IAM use, MFA on root account, EBS public snapshots, RDS public snapshots, and service limits). Business, Enterprise On-Ramp, and Enterprise Support provide access to all Trusted Advisor checks.",
+    incorrectExplanations: [
+      "Business Support provides full Trusted Advisor access.",
+      "Enterprise Support provides full Trusted Advisor access.",
+      "Enterprise On-Ramp Support provides full Trusted Advisor access.",
+    ],
+    relatedServices: ["Trusted Advisor", "AWS Support"],
+    tags: ["support", "trusted-advisor", "core-checks", "multi-select"],
+  },
+  {
+    id: "110",
+    domain: "Security and Compliance",
+    difficulty: "intermediate",
+    scenario:
+      "A multi-national company has just moved its infrastructure from its on-premises data center to AWS Cloud. As part of the shared responsibility model, AWS is responsible for which of the following?",
+    options: [
+      "Configuring customer applications",
+      "Service and Communications Protection or Zone Security",
+      "Patching guest OS",
+      "Physical and Environmental controls",
+    ],
+    correctAnswer: 3,
+    explanation:
+      "AWS is responsible for security 'of' the cloud, which includes physical infrastructure, environmental controls, hardware, and the foundational services. This includes data center security, power, cooling, and physical access controls. Customers are responsible for security 'in' the cloud.",
+    incorrectExplanations: [
+      "Configuring applications is customer responsibility.",
+      "Zone security configuration is a shared responsibility depending on the service.",
+      "Patching guest OS on EC2 is customer responsibility (AWS patches RDS engines).",
+    ],
+    relatedServices: ["All AWS Services"],
+    tags: ["shared-responsibility", "physical-security", "infrastructure"],
+  },
+  {
+    id: "111",
+    domain: "Cloud Concepts",
+    difficulty: "intermediate",
+    scenario:
+      "Which of the following are correct statements regarding the AWS Global Infrastructure? (Select two)",
+    options: [
+      "Each Availability Zone (AZ) consists of two or more discrete data centers",
+      "Each AWS Region consists of a minimum of two Availability Zones (AZ)",
+      "Each AWS Region consists of two or more Edge Locations",
+      "Each AWS Region consists of a minimum of three Availability Zones (AZ)",
+      "Each Availability Zone (AZ) consists of one or more discrete data centers",
+    ],
+    correctAnswer: [3, 4],
+    isMultiSelect: true,
+    selectCount: 2,
+    explanation:
+      "Each AWS Region consists of a minimum of three Availability Zones to provide high availability and fault tolerance. Each Availability Zone consists of one or more discrete data centers with redundant power, networking, and connectivity, all housed in separate facilities.",
+    incorrectExplanations: [
+      "AZs consist of one or more data centers, not always two or more.",
+      "Regions have a minimum of three AZs, not two.",
+      "Edge Locations are separate from Regions and AZs - they're part of CloudFront CDN network.",
+    ],
+    relatedServices: ["Global Infrastructure"],
+    tags: ["global-infrastructure", "regions", "availability-zones", "multi-select"],
+  },
+  {
+    id: "112",
+    domain: "Cloud Concepts",
+    difficulty: "beginner",
+    scenario: "Which type of cloud computing does Amazon Elastic Compute Cloud (EC2) represent?",
+    options: [
+      "Network as a Service (NaaS)",
+      "Platform as a Service (PaaS)",
+      "Software as a Service (SaaS)",
+      "Infrastructure as a Service (IaaS)",
+    ],
+    correctAnswer: 3,
+    explanation:
+      "Amazon EC2 is Infrastructure as a Service (IaaS) - you get virtual machines and have full control over the operating system, networking, and storage. You're responsible for patching, scaling, and managing the infrastructure, but AWS manages the physical hardware.",
+    incorrectExplanations: [
+      "NaaS isn't a standard cloud computing model.",
+      "PaaS (like Elastic Beanstalk) abstracts infrastructure management.",
+      "SaaS (like Gmail) provides ready-to-use applications, not infrastructure.",
+    ],
+    relatedServices: ["EC2", "VPC"],
+    tags: ["cloud-concepts", "iaas", "ec2", "service-models"],
+  },
+  {
+    id: "113",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which of the following statements are CORRECT regarding the AWS VPC service? (Select two)",
+    options: [
+      "A Network Address Translation instance (NAT instance) is managed by AWS",
+      "A Network Address Translation gateway (NAT gateway) is managed by AWS",
+      "A Security Group can have both allow and deny rules",
+      "A network access control list (network ACL) can have allow rules only",
+      "A Security Group can have allow rules only",
+    ],
+    correctAnswer: [1, 4],
+    isMultiSelect: true,
+    selectCount: 2,
+    explanation:
+      "NAT gateways are fully managed by AWS (automatic scaling, high availability). Security Groups are stateful firewalls that only support allow rules - traffic is implicitly denied if not explicitly allowed. Network ACLs support both allow and deny rules, while NAT instances are customer-managed EC2 instances.",
+    incorrectExplanations: [
+      "NAT instances are customer-managed EC2 instances, not managed by AWS.",
+      "Security Groups only support allow rules, no explicit deny rules.",
+      "Network ACLs can have both allow and deny rules.",
+    ],
+    relatedServices: ["VPC", "NAT Gateway", "Security Groups", "Network ACL"],
+    tags: ["vpc", "networking", "security-groups", "nat-gateway", "multi-select"],
+  },
+  {
+    id: "114",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which of the following AWS services support VPC Gateway Endpoint for a private connection from a VPC? (Select two)",
+    options: [
+      "Amazon DynamoDB",
+      "Amazon Simple Storage Service (Amazon S3)",
+      "Amazon Simple Notification Service (SNS)",
+      "Amazon Simple Queue Service (SQS)",
+      "Amazon Elastic Compute Cloud (Amazon EC2)",
+    ],
+    correctAnswer: [0, 1],
+    isMultiSelect: true,
+    selectCount: 2,
+    explanation:
+      "VPC Gateway Endpoints are only available for Amazon S3 and Amazon DynamoDB. They allow private connectivity to these services without using internet gateways, NAT devices, VPN connections, or AWS Direct Connect. For other AWS services, you must use VPC Interface Endpoints (AWS PrivateLink).",
+    incorrectExplanations: [
+      "SNS requires Interface Endpoints (PrivateLink), not Gateway Endpoints.",
+      "SQS requires Interface Endpoints (PrivateLink), not Gateway Endpoints.",
+      "EC2 doesn't use VPC endpoints - instances are already in your VPC.",
+    ],
+    relatedServices: ["VPC", "S3", "DynamoDB", "VPC Endpoints"],
+    tags: ["vpc", "endpoints", "gateway-endpoint", "s3", "dynamodb", "multi-select"],
+  },
+  {
+    id: "115",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "An organization needs to securely access AWS services and establish private connectivity between its Virtual Private Clouds (VPCs) and supported AWS services without using the public internet. Which AWS services can meet this requirement? (Select two)",
+    options: [
+      "Amazon Inspector",
+      "AWS Internet Gateway",
+      "AWS PrivateLink",
+      "Amazon Connect",
+      "AWS Transit Gateway",
+    ],
+    correctAnswer: [2, 4],
+    isMultiSelect: true,
+    selectCount: 2,
+    explanation:
+      "AWS PrivateLink provides private connectivity between VPCs and AWS services using Interface Endpoints, keeping traffic within the AWS network. AWS Transit Gateway connects multiple VPCs and on-premises networks through a central hub, enabling private connectivity without internet gateways.",
+    incorrectExplanations: [
+      "Inspector is a security assessment service, not a networking service.",
+      "Internet Gateway enables public internet access, opposite of the requirement.",
+      "Connect is a contact center service, not a networking service.",
+    ],
+    relatedServices: ["PrivateLink", "Transit Gateway", "VPC"],
+    tags: ["networking", "privatelink", "transit-gateway", "private-connectivity", "multi-select"],
+  },
+  {
+    id: "116",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario: "Which of the following is an AWS database service?",
+    options: [
+      "Amazon Redshift",
+      "AWS Glue",
+      "AWS Database Migration Service (AWS DMS)",
+      "AWS Storage Gateway",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "Amazon Redshift is a fully managed data warehouse database service designed for analytics and large-scale data processing using SQL. It's optimized for running complex queries on petabytes of structured data using columnar storage and parallel query execution.",
+    incorrectExplanations: [
+      "Glue is an ETL (Extract, Transform, Load) service, not a database.",
+      "DMS migrates databases but isn't a database service itself.",
+      "Storage Gateway is a hybrid storage service, not a database.",
+    ],
+    relatedServices: ["Redshift", "RDS", "DynamoDB"],
+    tags: ["database", "redshift", "data-warehouse"],
+  },
+  {
+    id: "117",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "A company wants to support active-active configuration in both the East and West US AWS regions using a NoSQL database. Which AWS database service is the right fit for this requirement?",
+    options: [
+      "Amazon Relational Database Service (Amazon RDS) for MYSQL",
+      "Amazon DynamoDB with DynamoDB Accelerator",
+      "Amazon Aurora with multi-master clusters",
+      "Amazon DynamoDB with global tables",
+    ],
+    correctAnswer: 3,
+    explanation:
+      "Amazon DynamoDB with global tables provides multi-region, multi-master replication for active-active configurations. It automatically replicates data across selected AWS Regions with sub-second latency, allowing writes in any region with automatic conflict resolution.",
+    incorrectExplanations: [
+      "RDS for MySQL doesn't natively support active-active multi-region writes.",
+      "DAX is a DynamoDB caching layer, not a multi-region solution.",
+      "Aurora multi-master supports multiple write nodes but only within a single region.",
+    ],
+    relatedServices: ["DynamoDB", "Global Tables"],
+    tags: ["database", "dynamodb", "global-tables", "multi-region", "active-active"],
+  },
+  {
+    id: "118",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS services can be used to decouple components of a microservices based application on AWS Cloud? (Select two)",
+    options: [
+      "Amazon Simple Queue Service (SQS)",
+      "AWS Lambda",
+      "AWS Step Functions",
+      "Amazon Elastic Compute Cloud (Amazon EC2)",
+      "Amazon Simple Notification Service (SNS)",
+    ],
+    correctAnswer: [0, 4],
+    isMultiSelect: true,
+    selectCount: 2,
+    explanation:
+      "Amazon SQS provides message queuing for asynchronous communication between microservices. Amazon SNS provides pub/sub messaging for fanout patterns. Together, they enable loose coupling where services don't need to know about each other, improving scalability and fault tolerance.",
+    incorrectExplanations: [
+      "Lambda is compute for running code, not specifically for decoupling (though it can consume from SQS/SNS).",
+      "Step Functions orchestrate workflows but don't decouple services.",
+      "EC2 is compute infrastructure, not a decoupling service.",
+    ],
+    relatedServices: ["SQS", "SNS", "EventBridge"],
+    tags: ["microservices", "decoupling", "sqs", "sns", "messaging", "multi-select"],
+  },
+  {
+    id: "119",
+    domain: "Cloud Technology and Services",
+    difficulty: "beginner",
+    scenario: "Which of the following is a serverless AWS service?",
+    options: ["Amazon Elastic Compute Cloud (Amazon EC2)", "AWS Elastic Beanstalk", "AWS Lambda", "Amazon EMR"],
+    correctAnswer: 2,
+    explanation:
+      "AWS Lambda is a serverless compute service where you run code without provisioning or managing servers. You pay only for the compute time you consume - there's no charge when your code isn't running. Lambda automatically scales and handles infrastructure management.",
+    incorrectExplanations: [
+      "EC2 requires you to provision and manage virtual machines.",
+      "Elastic Beanstalk abstracts infrastructure but still runs on EC2 instances you provision.",
+      "EMR is a managed big data platform but requires cluster provisioning.",
+    ],
+    relatedServices: ["Lambda", "API Gateway", "DynamoDB"],
+    tags: ["serverless", "lambda", "compute"],
+  },
+  {
+    id: "120",
+    domain: "Billing, Pricing and Support",
+    difficulty: "intermediate",
+    scenario:
+      "Which of the following is the MOST cost-effective option to purchase an EC2 Reserved Instance (RI)?",
+    options: [
+      "All upfront payment option with the standard 1-year term",
+      "No upfront payment option with standard 3-years term",
+      "Partial upfront payment option with standard 3-years term",
+      "No upfront payment option with standard 1-year term",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "The partial upfront payment option with a 3-year term provides the best balance of cost savings and flexibility. Three-year terms offer deeper discounts than 1-year terms, and partial upfront provides significant savings while not requiring full payment upfront, making it the most cost-effective overall option.",
+    incorrectExplanations: [
+      "1-year terms offer less discount than 3-year terms.",
+      "No upfront offers less discount than partial upfront for the same term.",
+      "1-year with no upfront provides the least savings of all options.",
+    ],
+    relatedServices: ["EC2", "Reserved Instances"],
+    tags: ["pricing", "reserved-instances", "cost-optimization"],
+  },
+  {
+    id: "121",
+    domain: "Billing, Pricing and Support",
+    difficulty: "beginner",
+    scenario:
+      "A startup wants to get an estimate of the monthly AWS bill based on the services they plan to use. Which service would you suggest?",
+    options: ["AWS Pricing Calculator", "AWS Budgets", "AWS Cost Explorer", "AWS Cost & Usage Report (AWS CUR)"],
+    correctAnswer: 0,
+    explanation:
+      "AWS Pricing Calculator (formerly Simple Monthly Calculator) allows you to create estimates for AWS services based on your expected usage. It helps you model different configurations and compare costs before deploying resources, making it ideal for planning and budgeting.",
+    incorrectExplanations: [
+      "Budgets helps you track actual spending against budgets, not create estimates.",
+      "Cost Explorer analyzes historical costs, not future estimates.",
+      "Cost & Usage Report provides detailed billing data for actual usage, not estimates.",
+    ],
+    relatedServices: ["Pricing Calculator", "Budgets", "Cost Explorer"],
+    tags: ["pricing", "calculator", "cost-estimation"],
+  },
+  {
+    id: "122",
+    domain: "Billing, Pricing and Support",
+    difficulty: "intermediate",
+    scenario:
+      "An on-demand EC2 instance with per-second billing is terminated within 30 seconds. What is the duration for which the instance would be charged?",
+    options: ["300 seconds", "60 seconds", "30 seconds", "600 seconds"],
+    correctAnswer: 1,
+    explanation:
+      "EC2 instances with per-second billing have a minimum charge of 60 seconds. After the first minute, you're charged for every second the instance runs. So even if you terminate an instance after 30 seconds, you'll be charged for the full 60-second minimum.",
+    incorrectExplanations: [
+      "300 seconds (5 minutes) is not related to EC2 billing.",
+      "30 seconds would be correct without the 60-second minimum.",
+      "600 seconds (10 minutes) is not related to EC2 billing.",
+    ],
+    relatedServices: ["EC2", "Billing"],
+    tags: ["pricing", "ec2", "per-second-billing", "minimum-charge"],
+  },
+  {
+    id: "123",
+    domain: "Billing, Pricing and Support",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS service will help you receive alerts when the reservation utilization falls below the defined threshold?",
+    options: ["AWS CloudTrail", "AWS Budgets", "AWS Trusted Advisor", "AWS Pricing Calculator"],
+    correctAnswer: 1,
+    explanation:
+      "AWS Budgets allows you to set custom budgets and receive alerts for various metrics including Reserved Instance utilization. You can configure alerts to notify you when RI utilization falls below thresholds, helping you optimize your Reserved Instance purchases and coverage.",
+    incorrectExplanations: [
+      "CloudTrail logs API activity, not cost or utilization metrics.",
+      "Trusted Advisor provides best practice recommendations but doesn't send custom utilization alerts.",
+      "Pricing Calculator estimates costs, it doesn't monitor actual utilization.",
+    ],
+    relatedServices: ["Budgets", "Cost Explorer", "Reserved Instances"],
+    tags: ["budgets", "alerts", "reserved-instances", "utilization"],
+  },
+  {
+    id: "124",
+    domain: "Storage and Encryption",
+    difficulty: "intermediate",
+    scenario: "Which of the following AWS services has encryption enabled by default?",
+    options: [
+      "Amazon Elastic File System (Amazon EFS)",
+      "AWS CloudTrail Logs",
+      "Amazon Elastic Block Store (Amazon EBS)",
+      "Amazon Relational Database Service (Amazon RDS)",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "AWS CloudTrail logs are encrypted by default using Amazon S3 server-side encryption (SSE-S3). For other services like EFS, EBS, and RDS, you must explicitly enable encryption when creating the resource, although encryption at rest is strongly recommended.",
+    incorrectExplanations: [
+      "EFS requires you to enable encryption when creating the file system.",
+      "EBS requires you to enable encryption when creating volumes.",
+      "RDS requires you to enable encryption when creating the database instance.",
+    ],
+    relatedServices: ["CloudTrail", "S3", "KMS"],
+    tags: ["encryption", "cloudtrail", "security", "default-encryption"],
+  },
+  {
+    id: "125",
+    domain: "Storage and Encryption",
+    difficulty: "intermediate",
+    scenario:
+      "A company wants to have control over creating and using its own keys for encryption. Which of the following can be used?",
+    options: ["AWS managed key", "AWS Secrets Manager", "AWS owned key", "customer managed key (CMK)"],
+    correctAnswer: 3,
+    explanation:
+      "Customer managed keys (CMKs) in AWS KMS give you full control over key creation, rotation policies, and usage permissions through IAM policies. You can view key usage in CloudTrail, enable/disable keys, and define who can use them for encryption/decryption operations.",
+    incorrectExplanations: [
+      "AWS managed keys are created and managed by AWS on your behalf - you don't control them.",
+      "Secrets Manager stores secrets/credentials, it doesn't provide encryption key control.",
+      "AWS owned keys are used by AWS for internal operations - you can't view or control them.",
+    ],
+    relatedServices: ["KMS", "CMK"],
+    tags: ["encryption", "kms", "cmk", "customer-managed-keys"],
+  },
+  {
+    id: "126",
+    domain: "Storage and Encryption",
+    difficulty: "intermediate",
+    scenario: "Which statement is CORRECT regarding AZ characteristics of EBS and EFS?",
+    options: [
+      "EBS volume can be attached to instances in multiple AZs and EFS in the same AZ",
+      "EBS volume can be attached to a single instance in the same AZ and EFS only in the same AZ",
+      "EBS volume can be attached to a single instance in the same AZ whereas EFS file system can be mounted on instances across multiple Availability Zones (AZ)",
+      "EBS volume can be attached to instances in multiple AZs and EFS across multiple AZs",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "EBS volumes are AZ-specific and can only be attached to EC2 instances in the same Availability Zone. Amazon EFS is a regional service that can be mounted by EC2 instances across multiple AZs in the same region simultaneously, providing high availability and shared access.",
+    incorrectExplanations: [
+      "EBS cannot be attached to instances in multiple AZs (except multi-attach io1/io2 within same AZ).",
+      "EFS is not limited to the same AZ - it spans multiple AZs in a region.",
+      "EBS cannot span multiple AZs.",
+    ],
+    relatedServices: ["EBS", "EFS", "EC2"],
+    tags: ["storage", "ebs", "efs", "availability-zones"],
+  },
+  {
+    id: "127",
+    domain: "Storage and Encryption",
+    difficulty: "advanced",
+    scenario:
+      "A research group needs high-performance disks with fast I/O for fault-tolerant scientific computation. Which is the MOST cost-effective solution?",
+    options: [
+      "Amazon Elastic File System (Amazon EFS)",
+      "Instance Store",
+      "Amazon Simple Storage Service (Amazon S3)",
+      "Amazon Elastic Block Store (EBS)",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "Instance Store provides temporary block-level storage directly attached to the host computer, offering the highest I/O performance (NVMe SSD) at no additional cost beyond the instance price. For fault-tolerant workloads that can handle data loss (since instance store is ephemeral), it's the most cost-effective high-performance option.",
+    incorrectExplanations: [
+      "EFS is network-based and more expensive than instance store for compute-intensive workloads.",
+      "S3 is object storage with higher latency, not suitable for high-performance disk I/O.",
+      "EBS provides persistence but costs more and has lower performance than instance store.",
+    ],
+    relatedServices: ["Instance Store", "EC2", "EBS"],
+    tags: ["storage", "instance-store", "performance", "cost-optimization"],
+  },
+  {
+    id: "128",
+    domain: "Security and Compliance",
+    difficulty: "intermediate",
+    scenario: "AWS Web Application Firewall (WAF) offers protection at which layer?",
+    options: ["Layer 4 and 7", "Layer 7", "Layer 3", "Layer 4"],
+    correctAnswer: 1,
+    explanation:
+      "AWS WAF operates at Layer 7 (Application Layer) of the OSI model, protecting web applications by filtering HTTP/HTTPS requests. It can inspect headers, body, and query strings to block common attacks like SQL injection, cross-site scripting (XSS), and other web exploits.",
+    incorrectExplanations: [
+      "Layer 4 and 7 would be Shield Advanced plus WAF, not WAF alone.",
+      "Layer 3 (Network Layer) is handled by network ACLs and security groups.",
+      "Layer 4 (Transport Layer) is handled by security groups and Network Load Balancers.",
+    ],
+    relatedServices: ["WAF", "CloudFront", "ALB", "API Gateway"],
+    tags: ["security", "waf", "layer-7", "web-security"],
+  },
+  {
+    id: "129",
+    domain: "Cloud Concepts",
+    difficulty: "advanced",
+    scenario:
+      "Which option is a common stakeholder role for the AWS Cloud Adoption Framework (AWS CAF) platform perspective? (Select two)",
+    options: [
+      "Chief Technology Officer (CTO)",
+      "Chief Data Officer (CDO)",
+      "Chief Product Officer (CPO)",
+      "Chief Information Officer (CIO)",
+      "Engineer",
+    ],
+    correctAnswer: [0, 4],
+    isMultiSelect: true,
+    selectCount: 2,
+    explanation:
+      "The Platform perspective of AWS CAF focuses on describing the architecture of the target state environment in detail. Common stakeholder roles include CTO (technical strategy), Engineers (implementation), and architects. They focus on principles and patterns for implementing cloud platforms and migrating workloads.",
+    incorrectExplanations: [
+      "CDO typically aligns with the Governance perspective.",
+      "CPO typically aligns with the Business perspective.",
+      "CIO typically aligns with multiple perspectives including Business and Platform, but Engineer is more specific to Platform.",
+    ],
+    relatedServices: ["CAF", "Migration"],
+    tags: ["caf", "cloud-adoption-framework", "platform-perspective", "stakeholders", "multi-select"],
+  },
+  // ADDITIONAL 30 QUESTIONS SPANNING ALL DOMAINS
+  {
+    id: "130",
+    domain: "Cloud Concepts",
+    difficulty: "intermediate",
+    scenario:
+      "A company wants to move their legacy application to AWS quickly without making any modifications. Which migration strategy should they use?",
+    options: ["Replatform", "Rehost", "Refactor", "Repurchase"],
+    correctAnswer: 1,
+    explanation:
+      "Rehost (Lift and Shift) moves applications to the cloud without changing the architecture. It's the quickest migration path with minimal disruption, ideal for legacy systems that need to be moved urgently without modifications.",
+    incorrectExplanations: [
+      "Replatform involves small optimizations during migration.",
+      "Refactor requires redesigning the application for cloud-native features.",
+      "Repurchase means replacing with a new SaaS product.",
+    ],
+    relatedServices: ["Migration Hub", "Application Discovery Service"],
+    tags: ["migration", "rehost", "7-rs", "lift-and-shift"],
+  },
+  {
+    id: "131",
+    domain: "Cloud Concepts",
+    difficulty: "intermediate",
+    scenario:
+      "A company wants to migrate their self-managed database to Amazon RDS while moving to AWS. Which migration strategy is this an example of?",
+    options: ["Rehost", "Replatform", "Retire", "Relocate"],
+    correctAnswer: 1,
+    explanation:
+      "Replatform (Lift, Tinker, and Shift) involves moving to the cloud with small optimizations. Migrating a self-managed database to Amazon RDS is a classic example - you're optimizing the infrastructure without changing the application architecture significantly.",
+    incorrectExplanations: [
+      "Rehost would keep the database self-managed on EC2.",
+      "Retire means shutting down the application entirely.",
+      "Relocate is for large-scale VM migrations using tools like CloudEndure.",
+    ],
+    relatedServices: ["RDS", "DMS", "Migration Hub"],
+    tags: ["migration", "replatform", "7-rs", "rds"],
+  },
+  {
+    id: "132",
+    domain: "Cloud Concepts",
+    difficulty: "advanced",
+    scenario:
+      "A company decides to replace their legacy CRM system with Salesforce when moving to the cloud. Which migration strategy is this?",
+    options: ["Refactor", "Repurchase", "Replatform", "Retain"],
+    correctAnswer: 1,
+    explanation:
+      "Repurchase (Drop and Shop) involves replacing an existing application with a SaaS alternative. Moving from a legacy CRM to Salesforce is a classic repurchase scenario - you're buying a new cloud-native solution instead of migrating the old system.",
+    incorrectExplanations: [
+      "Refactor means redesigning your existing application, not replacing it.",
+      "Replatform means optimizing during migration, not replacing with SaaS.",
+      "Retain means keeping the application on-premises.",
+    ],
+    relatedServices: ["AWS Marketplace"],
+    tags: ["migration", "repurchase", "7-rs", "saas"],
+  },
+  {
+    id: "133",
+    domain: "Cloud Concepts",
+    difficulty: "intermediate",
+    scenario:
+      "During a cloud migration assessment, a company identifies several applications that are no longer used. What migration strategy should they apply?",
+    options: ["Retain", "Retire", "Relocate", "Rehost"],
+    correctAnswer: 1,
+    explanation:
+      "Retire (Decommission) is used for applications that are no longer needed. It's a low-effort strategy that reduces costs by shutting down unused systems instead of migrating them to the cloud.",
+    incorrectExplanations: [
+      "Retain is for keeping applications on-premises.",
+      "Relocate is for migrating large workloads.",
+      "Rehost is for migrating applications that are still needed.",
+    ],
+    relatedServices: ["Migration Hub"],
+    tags: ["migration", "retire", "7-rs", "decommission"],
+  },
+  {
+    id: "134",
+    domain: "Security and Compliance",
+    difficulty: "advanced",
+    scenario:
+      "A healthcare company must keep certain patient record systems on-premises due to specific compliance requirements. Which migration strategy applies?",
+    options: ["Retire", "Retain", "Rehost", "Refactor"],
+    correctAnswer: 1,
+    explanation:
+      "Retain (Revisit) is used when applications must stay on-premises, often due to compliance, regulatory, or technical constraints. The company can revisit the decision later when requirements change or cloud compliance certifications become available.",
+    incorrectExplanations: [
+      "Retire means shutting down, not keeping operational.",
+      "Rehost would migrate to the cloud, violating compliance.",
+      "Refactor also migrates to the cloud.",
+    ],
+    relatedServices: ["Compliance Programs", "HIPAA"],
+    tags: ["migration", "retain", "7-rs", "compliance"],
+  },
+  {
+    id: "135",
+    domain: "Cloud Concepts",
+    difficulty: "advanced",
+    scenario:
+      "A company wants to migrate 1,000 VMware virtual machines to AWS with minimal changes. Which migration strategy and tool combination is most appropriate?",
+    options: [
+      "Rehost using AWS Application Discovery Service",
+      "Relocate using AWS Application Migration Service",
+      "Replatform using AWS Database Migration Service",
+      "Refactor using AWS CloudFormation",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "Relocate (Hypervisor-level Migration) is designed for migrating large numbers of workloads without modifying them. AWS Application Migration Service (formerly CloudEndure) provides automated lift-and-shift for VMware VMs at scale with minimal downtime.",
+    incorrectExplanations: [
+      "Application Discovery Service discovers applications but doesn't migrate them.",
+      "DMS is for database migration, not VMs.",
+      "CloudFormation provisions infrastructure, not a migration tool.",
+    ],
+    relatedServices: ["Application Migration Service", "VMware Cloud on AWS"],
+    tags: ["migration", "relocate", "7-rs", "vmware"],
+  },
+  {
+    id: "136",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "A company needs to redesign their monolithic application into microservices to take advantage of auto-scaling and serverless features. Which migration strategy is this?",
+    options: ["Replatform", "Refactor", "Rehost", "Repurchase"],
+    correctAnswer: 1,
+    explanation:
+      "Refactor (Re-architect) involves redesigning applications to leverage cloud-native features like microservices, containers, and serverless. This is a high-effort strategy but provides the most benefits in terms of scalability, agility, and performance.",
+    incorrectExplanations: [
+      "Replatform makes small optimizations, not major architectural changes.",
+      "Rehost moves without changes.",
+      "Repurchase replaces with SaaS, doesn't redesign existing apps.",
+    ],
+    relatedServices: ["Lambda", "ECS", "EKS", "API Gateway"],
+    tags: ["migration", "refactor", "7-rs", "microservices"],
+  },
+  {
+    id: "137",
+    domain: "Billing, Pricing and Support",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS service provides a visual interface to understand your AWS costs and usage patterns over time?",
+    options: ["AWS Budgets", "AWS Cost Explorer", "AWS Billing Dashboard", "AWS Organizations"],
+    correctAnswer: 1,
+    explanation:
+      "AWS Cost Explorer provides interactive visualizations to analyze your AWS costs and usage over time. It allows filtering by service, region, tag, and includes forecasting capabilities to predict future costs based on historical patterns.",
+    incorrectExplanations: [
+      "Budgets sets spending limits and alerts, doesn't visualize historical data.",
+      "Billing Dashboard shows current charges but lacks Cost Explorer's analysis features.",
+      "Organizations manages multiple accounts, not cost visualization.",
+    ],
+    relatedServices: ["Cost Explorer", "Cost and Usage Report"],
+    tags: ["cost-management", "cost-explorer", "visualization"],
+  },
+  {
+    id: "138",
+    domain: "Billing, Pricing and Support",
+    difficulty: "advanced",
+    scenario:
+      "A company with Enterprise Support needs assistance with their AWS account, billing inquiries, and service limit increases. Which team should they contact?",
+    options: [
+      "AWS Concierge Support Team",
+      "AWS Cloud Support Engineers",
+      "AWS Professional Services",
+      "AWS Account Manager",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "The AWS Concierge Support Team is a dedicated team for Enterprise Support customers that helps with billing and account inquiries, service limit increases, and other account-related issues. They act as a single point of contact for non-technical account matters.",
+    incorrectExplanations: [
+      "Cloud Support Engineers handle technical issues, not account/billing.",
+      "Professional Services provides consulting, not account support.",
+      "Account Managers (TAMs) provide guidance but Concierge handles specific account tasks.",
+    ],
+    relatedServices: ["Enterprise Support", "Concierge"],
+    tags: ["support", "enterprise-support", "concierge"],
+  },
+  {
+    id: "139",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS service allows you to run containers without managing the underlying servers or clusters?",
+    options: ["Amazon ECS", "Amazon EKS", "AWS Fargate", "AWS Lambda"],
+    correctAnswer: 2,
+    explanation:
+      "AWS Fargate is a serverless compute engine for containers that works with both ECS and EKS. You don't need to provision or manage servers - Fargate automatically scales compute capacity and you only pay for the resources your containers use.",
+    incorrectExplanations: [
+      "ECS requires you to manage EC2 instances (unless using Fargate launch type).",
+      "EKS requires managing Kubernetes control plane and worker nodes (unless using Fargate).",
+      "Lambda runs functions, not containers (though it supports container images).",
+    ],
+    relatedServices: ["Fargate", "ECS", "EKS"],
+    tags: ["containers", "fargate", "serverless", "compute"],
+  },
+  {
+    id: "140",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "A company needs a fully managed message broker service compatible with Apache ActiveMQ and RabbitMQ. Which AWS service meets this requirement?",
+    options: ["Amazon SQS", "Amazon SNS", "Amazon MQ", "Amazon Kinesis"],
+    correctAnswer: 2,
+    explanation:
+      "Amazon MQ is a managed message broker service for Apache ActiveMQ and RabbitMQ. It's ideal for migrating existing applications that rely on these standard protocols without rewriting code to use SQS or SNS.",
+    incorrectExplanations: [
+      "SQS is AWS's native queue service, not compatible with ActiveMQ/RabbitMQ protocols.",
+      "SNS is for pub/sub messaging, not a message broker.",
+      "Kinesis is for real-time streaming data, not message brokering.",
+    ],
+    relatedServices: ["Amazon MQ", "ActiveMQ", "RabbitMQ"],
+    tags: ["messaging", "amazon-mq", "message-broker"],
+  },
+  {
+    id: "141",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS service provides managed Apache Kafka for building real-time streaming data pipelines?",
+    options: ["Amazon Kinesis Data Streams", "Amazon MSK", "Amazon EMR", "AWS Glue"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon MSK (Managed Streaming for Apache Kafka) provides fully managed Apache Kafka. It handles cluster setup, monitoring, and maintenance while giving you full control over Kafka configuration for building streaming applications.",
+    incorrectExplanations: [
+      "Kinesis Data Streams is AWS's proprietary streaming service, not Kafka.",
+      "EMR is for big data processing with Hadoop/Spark, not Kafka management.",
+      "Glue is for ETL jobs, not streaming data.",
+    ],
+    relatedServices: ["MSK", "Kafka", "Kinesis"],
+    tags: ["streaming", "kafka", "msk", "real-time"],
+  },
+  {
+    id: "142",
+    domain: "Security and Compliance",
+    difficulty: "advanced",
+    scenario:
+      "A company needs to analyze VPC Flow Logs to identify security threats and unusual traffic patterns. Which AWS service uses machine learning for this purpose?",
+    options: ["AWS Config", "Amazon GuardDuty", "Amazon Inspector", "AWS CloudTrail"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon GuardDuty uses machine learning to analyze VPC Flow Logs, CloudTrail logs, and DNS logs to detect threats like compromised instances, reconnaissance, and data exfiltration. It provides automated threat detection without requiring manual rule configuration.",
+    incorrectExplanations: [
+      "Config tracks resource configurations, not threat detection.",
+      "Inspector assesses EC2 vulnerabilities, doesn't analyze network traffic.",
+      "CloudTrail records API calls but doesn't analyze for threats.",
+    ],
+    relatedServices: ["GuardDuty", "VPC Flow Logs", "Security Hub"],
+    tags: ["security", "guardduty", "threat-detection", "machine-learning"],
+  },
+  {
+    id: "143",
+    domain: "Security and Compliance",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS service helps developers securely store and rotate database credentials, API keys, and other secrets?",
+    options: ["AWS Systems Manager Parameter Store", "AWS Secrets Manager", "AWS KMS", "Amazon Cognito"],
+    correctAnswer: 1,
+    explanation:
+      "AWS Secrets Manager is purpose-built for managing secrets with automatic rotation capabilities. It natively integrates with RDS, Redshift, and DocumentDB to automatically rotate database credentials without application downtime.",
+    incorrectExplanations: [
+      "Parameter Store stores configuration data but lacks native secret rotation for databases.",
+      "KMS manages encryption keys, not application secrets.",
+      "Cognito manages user authentication, not application secrets.",
+    ],
+    relatedServices: ["Secrets Manager", "RDS", "KMS"],
+    tags: ["security", "secrets-manager", "credentials", "rotation"],
+  },
+  {
+    id: "144",
+    domain: "Monitoring and Optimization",
+    difficulty: "intermediate",
+    scenario:
+      "A company wants to create custom metrics from their application logs to monitor business KPIs. Which AWS service feature should they use?",
+    options: [
+      "CloudWatch Logs Insights",
+      "CloudWatch Metric Filters",
+      "CloudWatch Alarms",
+      "CloudWatch Dashboards",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "CloudWatch Metric Filters extract metrics from log data by searching for specific patterns. You can then create alarms and dashboards based on these custom metrics, enabling monitoring of business KPIs derived from application logs.",
+    incorrectExplanations: [
+      "Logs Insights queries logs but doesn't create persistent metrics.",
+      "Alarms trigger on metrics but don't create them from logs.",
+      "Dashboards display metrics but don't extract them from logs.",
+    ],
+    relatedServices: ["CloudWatch", "CloudWatch Logs"],
+    tags: ["monitoring", "cloudwatch", "metrics", "logs"],
+  },
+  {
+    id: "145",
+    domain: "Monitoring and Optimization",
+    difficulty: "advanced",
+    scenario:
+      "Which AWS service provides a unified view of operational health and automates response to operational events?",
+    options: ["AWS Systems Manager", "AWS CloudFormation", "Amazon EventBridge", "AWS Config"],
+    correctAnswer: 0,
+    explanation:
+      "AWS Systems Manager provides a unified interface to view operational data from multiple AWS services and automate operational tasks. It includes features like OpsCenter for managing operational issues, Automation for remediation, and Inventory for resource tracking.",
+    incorrectExplanations: [
+      "CloudFormation provisions infrastructure, doesn't provide operational dashboards.",
+      "EventBridge routes events but doesn't provide operational health views.",
+      "Config tracks configurations, not operational health.",
+    ],
+    relatedServices: ["Systems Manager", "OpsCenter", "Automation"],
+    tags: ["monitoring", "systems-manager", "operations", "automation"],
+  },
+  {
+    id: "146",
+    domain: "Deployment and Operations",
+    difficulty: "intermediate",
+    scenario:
+      "A company wants to deploy application updates with the ability to quickly roll back if issues occur. Which AWS deployment service provides this capability?",
+    options: ["AWS CloudFormation", "AWS CodeDeploy", "AWS Elastic Beanstalk", "AWS OpsWorks"],
+    correctAnswer: 1,
+    explanation:
+      "AWS CodeDeploy automates application deployments with built-in rollback capabilities. It supports various deployment strategies (in-place, blue/green) and can automatically roll back if deployment fails or alarms trigger, ensuring application stability.",
+    incorrectExplanations: [
+      "CloudFormation manages infrastructure, not application deployments.",
+      "Elastic Beanstalk can deploy apps but CodeDeploy offers more control over deployment strategies.",
+      "OpsWorks is configuration management, not focused on deployment strategies.",
+    ],
+    relatedServices: ["CodeDeploy", "CodePipeline", "Auto Scaling"],
+    tags: ["deployment", "codedeploy", "rollback", "cicd"],
+  },
+  {
+    id: "147",
+    domain: "Deployment and Operations",
+    difficulty: "advanced",
+    scenario:
+      "Which AWS service enables you to run configuration management using Chef or Puppet?",
+    options: ["AWS Systems Manager", "AWS OpsWorks", "AWS CloudFormation", "AWS Config"],
+    correctAnswer: 1,
+    explanation:
+      "AWS OpsWorks is a configuration management service that provides managed instances of Chef and Puppet. It automates server configuration, deployment, and management using familiar Chef recipes and Puppet manifests.",
+    incorrectExplanations: [
+      "Systems Manager uses its own documents, not Chef/Puppet.",
+      "CloudFormation uses JSON/YAML templates, not Chef/Puppet.",
+      "Config tracks configurations but doesn't manage them with Chef/Puppet.",
+    ],
+    relatedServices: ["OpsWorks", "Chef", "Puppet"],
+    tags: ["configuration-management", "opsworks", "chef", "puppet"],
+  },
+  {
+    id: "148",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "A company needs to convert text to lifelike speech for their accessibility application. Which AWS service provides text-to-speech capabilities?",
+    options: ["Amazon Transcribe", "Amazon Polly", "Amazon Comprehend", "Amazon Translate"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon Polly converts text into lifelike speech using deep learning. It supports multiple languages and voices, with options for neural text-to-speech (NTTS) for the most natural-sounding voices, ideal for accessibility applications.",
+    incorrectExplanations: [
+      "Transcribe converts speech to text (opposite direction).",
+      "Comprehend analyzes text for sentiment and entities.",
+      "Translate converts text between languages, not to speech.",
+    ],
+    relatedServices: ["Polly", "Transcribe"],
+    tags: ["ai-ml", "polly", "text-to-speech", "accessibility"],
+  },
+  {
+    id: "149",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS service automatically converts speech from audio/video files into text?",
+    options: ["Amazon Polly", "Amazon Transcribe", "Amazon Rekognition", "Amazon Textract"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon Transcribe automatically converts speech to text using automatic speech recognition (ASR). It supports multiple languages, custom vocabularies, and can identify different speakers, making it ideal for transcribing meetings, lectures, and media content.",
+    incorrectExplanations: [
+      "Polly converts text to speech (opposite direction).",
+      "Rekognition analyzes images and videos, not audio.",
+      "Textract extracts text from documents, not audio.",
+    ],
+    relatedServices: ["Transcribe", "Polly"],
+    tags: ["ai-ml", "transcribe", "speech-to-text", "asr"],
+  },
+  {
+    id: "150",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "A company needs to extract text, forms data, and tables from scanned documents and PDFs. Which AWS service is purpose-built for this?",
+    options: ["Amazon Comprehend", "Amazon Textract", "Amazon Rekognition", "AWS Glue"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon Textract uses machine learning to extract text, handwriting, tables, and form data from scanned documents and PDFs. It goes beyond simple OCR by understanding document structure and relationships between data elements.",
+    incorrectExplanations: [
+      "Comprehend analyzes text for insights, doesn't extract from documents.",
+      "Rekognition analyzes images/videos but isn't optimized for document extraction.",
+      "Glue is for ETL, not document processing.",
+    ],
+    relatedServices: ["Textract", "S3"],
+    tags: ["ai-ml", "textract", "ocr", "document-processing"],
+  },
+  {
+    id: "151",
+    domain: "Security and Compliance",
+    difficulty: "advanced",
+    scenario:
+      "Which TWO AWS services work together to provide DDoS protection at both the network and application layers?",
+    options: [
+      "AWS Shield Standard",
+      "AWS WAF",
+      "Amazon GuardDuty",
+      "AWS Firewall Manager",
+      "Network ACLs",
+    ],
+    correctAnswer: [0, 1],
+    isMultiSelect: true,
+    selectCount: 2,
+    explanation:
+      "AWS Shield Standard provides DDoS protection at the network and transport layers (Layer 3/4) for all AWS customers at no cost. AWS WAF protects at the application layer (Layer 7) by filtering HTTP/HTTPS requests. Together they provide comprehensive DDoS protection.",
+    incorrectExplanations: [
+      "GuardDuty detects threats but doesn't actively block DDoS attacks.",
+      "Firewall Manager manages security policies, not direct DDoS protection.",
+      "Network ACLs provide basic filtering but aren't DDoS-specific protection.",
+    ],
+    relatedServices: ["Shield", "WAF", "CloudFront"],
+    tags: ["security", "ddos", "shield", "waf", "multi-select"],
+  },
+  {
+    id: "152",
+    domain: "Billing, Pricing and Support",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS Support plan provides access to a Technical Account Manager (TAM)?",
+    options: ["Business Support", "Enterprise Support", "Developer Support", "Enterprise On-Ramp Support"],
+    correctAnswer: 1,
+    explanation:
+      "Enterprise Support includes a designated Technical Account Manager (TAM) who provides proactive guidance, reviews, and advocacy. The TAM helps with architectural reviews, operational support, and acts as a primary point of contact for your AWS environment.",
+    incorrectExplanations: [
+      "Business Support provides support engineers but not a dedicated TAM.",
+      "Developer Support provides technical support during business hours only.",
+      "Enterprise On-Ramp provides access to a pool of TAMs but not a designated TAM.",
+    ],
+    relatedServices: ["Enterprise Support", "TAM"],
+    tags: ["support", "enterprise-support", "tam"],
+  },
+  {
+    id: "153",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "A company needs to build a GraphQL API that integrates with multiple data sources including DynamoDB, Lambda, and HTTP endpoints. Which AWS service is purpose-built for this?",
+    options: ["Amazon API Gateway", "AWS AppSync", "AWS Amplify", "Amazon EventBridge"],
+    correctAnswer: 1,
+    explanation:
+      "AWS AppSync is a fully managed GraphQL service that makes it easy to build data-driven applications. It can integrate with DynamoDB, Lambda, HTTP endpoints, and RDS, providing real-time updates and offline capabilities with automatic conflict resolution.",
+    incorrectExplanations: [
+      "API Gateway creates REST and WebSocket APIs, not GraphQL.",
+      "Amplify is a development platform that uses AppSync for GraphQL, not the core service.",
+      "EventBridge is for event routing, not GraphQL APIs.",
+    ],
+    relatedServices: ["AppSync", "GraphQL", "DynamoDB"],
+    tags: ["application-services", "appsync", "graphql", "api"],
+  },
+  {
+    id: "154",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS service provides a Git-based source control repository similar to GitHub?",
+    options: ["AWS CodeCommit", "AWS CodeBuild", "AWS CodeDeploy", "AWS CodePipeline"],
+    correctAnswer: 0,
+    explanation:
+      "AWS CodeCommit is a fully managed source control service that hosts secure Git repositories. It scales automatically, integrates with IAM for access control, and encrypts repositories at rest and in transit.",
+    incorrectExplanations: [
+      "CodeBuild compiles code and runs tests, doesn't host repositories.",
+      "CodeDeploy automates application deployments.",
+      "CodePipeline orchestrates CI/CD workflows.",
+    ],
+    relatedServices: ["CodeCommit", "Git", "CodePipeline"],
+    tags: ["developer-tools", "codecommit", "source-control", "git"],
+  },
+  {
+    id: "155",
+    domain: "Deployment and Operations",
+    difficulty: "advanced",
+    scenario:
+      "Which TWO AWS services can help automate the patching of EC2 instances?",
+    options: [
+      "AWS Systems Manager Patch Manager",
+      "AWS CloudFormation",
+      "AWS Config",
+      "AWS Systems Manager Maintenance Windows",
+      "Amazon Inspector",
+    ],
+    correctAnswer: [0, 3],
+    isMultiSelect: true,
+    selectCount: 2,
+    explanation:
+      "AWS Systems Manager Patch Manager automates the process of patching managed instances. Maintenance Windows define schedules for when patches should be applied, allowing you to control when patches run to avoid business-critical hours.",
+    incorrectExplanations: [
+      "CloudFormation provisions infrastructure, doesn't patch running instances.",
+      "Config tracks configurations and compliance, doesn't apply patches.",
+      "Inspector identifies vulnerabilities but doesn't patch systems.",
+    ],
+    relatedServices: ["Systems Manager", "Patch Manager", "Maintenance Windows"],
+    tags: ["operations", "patching", "systems-manager", "automation", "multi-select"],
+  },
+  {
+    id: "156",
+    domain: "Cloud Concepts",
+    difficulty: "intermediate",
+    scenario:
+      "According to the AWS Well-Architected Framework, which design principle helps reduce the impact of failures?",
+    options: [
+      "Implement strong identity foundation",
+      "Stop guessing capacity",
+      "Manage change in automation",
+      "Automatically recover from failure",
+    ],
+    correctAnswer: 3,
+    explanation:
+      "The Reliability pillar of the Well-Architected Framework emphasizes 'Automatically recover from failure' - monitor KPIs and trigger automated recovery when thresholds are breached. This reduces Mean Time To Recovery (MTTR) and minimizes the impact of failures.",
+    incorrectExplanations: [
+      "Strong identity foundation is a Security pillar principle.",
+      "Stop guessing capacity is a Performance Efficiency principle.",
+      "Manage change in automation is an Operational Excellence principle.",
+    ],
+    relatedServices: ["Well-Architected Framework", "Auto Scaling"],
+    tags: ["well-architected", "reliability", "failure-recovery"],
+  },
+  {
+    id: "157",
+    domain: "Monitoring and Optimization",
+    difficulty: "intermediate",
+    scenario:
+      "A company wants to be notified when their monthly AWS bill exceeds $10,000. Which AWS service should they configure?",
+    options: ["AWS Cost Explorer", "AWS Budgets", "CloudWatch Billing Alarms", "AWS Cost Anomaly Detection"],
+    correctAnswer: 1,
+    explanation:
+      "AWS Budgets allows you to set custom cost and usage budgets and receive alerts via SNS when actual or forecasted costs exceed your thresholds. It provides more flexibility than CloudWatch Billing Alarms and can track both cost and usage.",
+    incorrectExplanations: [
+      "Cost Explorer analyzes costs but doesn't send alerts.",
+      "CloudWatch Billing Alarms work but Budgets provides more features for cost management.",
+      "Cost Anomaly Detection detects unusual spending, not threshold-based alerts.",
+    ],
+    relatedServices: ["Budgets", "SNS", "Cost Explorer"],
+    tags: ["billing", "budgets", "cost-management", "alerts"],
+  },
+  {
+    id: "158",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "A company needs to process large-scale genomics data that requires high-performance computing with thousands of CPU cores. Which AWS service is optimized for this workload?",
+    options: ["AWS Batch", "Amazon EMR", "AWS ParallelCluster", "AWS Lambda"],
+    correctAnswer: 2,
+    explanation:
+      "AWS ParallelCluster is an AWS-supported open-source cluster management tool for deploying and managing High Performance Computing (HPC) clusters. It's ideal for scientific computing workloads like genomics that require thousands of tightly-coupled CPU cores.",
+    incorrectExplanations: [
+      "Batch is for batch processing but not optimized for tightly-coupled HPC workloads.",
+      "EMR is for big data processing with Hadoop/Spark, not HPC.",
+      "Lambda has execution time limits and isn't suitable for long-running HPC jobs.",
+    ],
+    relatedServices: ["ParallelCluster", "EC2", "HPC"],
+    tags: ["compute", "hpc", "parallelcluster", "scientific-computing"],
+  },
+  {
+    id: "159",
+    domain: "Storage and Encryption",
+    difficulty: "intermediate",
+    scenario:
+      "Which S3 storage class is designed for data that is accessed less frequently but requires rapid access when needed?",
+    options: [
+      "S3 Standard",
+      "S3 Intelligent-Tiering",
+      "S3 Standard-Infrequent Access (S3 Standard-IA)",
+      "S3 Glacier",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "S3 Standard-IA (Infrequent Access) is optimized for data accessed less frequently but requires millisecond access when needed. It offers lower storage costs than S3 Standard but has a retrieval fee, making it ideal for backups and disaster recovery.",
+    incorrectExplanations: [
+      "S3 Standard is for frequently accessed data and costs more.",
+      "Intelligent-Tiering automatically moves data between tiers, not specifically for infrequent access.",
+      "Glacier is for archival with retrieval times from minutes to hours.",
+    ],
+    relatedServices: ["S3", "S3 Storage Classes"],
+    tags: ["storage", "s3", "storage-classes", "infrequent-access"],
+  },
+  // PRIORITY 1: SECURITY AND COMPLIANCE (15 questions) - Critical Gap
+  {
+    id: "160",
+    domain: "Security and Compliance",
+    difficulty: "intermediate",
+    scenario:
+      "A company needs to grant temporary access to AWS resources for users who already have corporate credentials. Which AWS service provides this capability?",
+    options: ["AWS IAM Users", "AWS IAM Groups", "AWS Single Sign-On (SSO)", "AWS Cognito"],
+    correctAnswer: 2,
+    explanation:
+      "AWS IAM Identity Center (formerly AWS SSO) enables centralized access management for multiple AWS accounts and applications using existing corporate credentials through SAML 2.0 federation. Users can sign in once with their existing credentials and access all authorized AWS accounts and applications.",
+    incorrectExplanations: [
+      "IAM Users require creating and managing separate AWS credentials, not using corporate credentials.",
+      "IAM Groups organize IAM users but don't provide federation with corporate credentials.",
+      "Cognito is for customer-facing applications, not enterprise employee federation.",
+    ],
+    relatedServices: ["IAM Identity Center", "SSO", "SAML"],
+    tags: ["security", "iam", "sso", "federation"],
+  },
+  {
+    id: "161",
+    domain: "Security and Compliance",
+    difficulty: "advanced",
+    scenario:
+      "Which AWS service allows you to download compliance reports and AWS security certifications such as ISO, PCI, and SOC reports?",
+    options: ["AWS Config", "AWS Artifact", "AWS Security Hub", "AWS Compliance Manager"],
+    correctAnswer: 1,
+    explanation:
+      "AWS Artifact provides on-demand access to AWS security and compliance reports and select online agreements. You can download ISO certifications, PCI reports, SOC reports, and other compliance documentation directly from the console at no charge.",
+    incorrectExplanations: [
+      "Config tracks resource configurations for compliance but doesn't provide certification reports.",
+      "Security Hub aggregates security findings but doesn't provide compliance documentation.",
+      "Compliance Manager doesn't exist; AWS Audit Manager helps assess compliance, but Artifact provides the reports.",
+    ],
+    relatedServices: ["Artifact", "Compliance", "Security"],
+    tags: ["security", "compliance", "artifact", "certifications"],
+  },
+  {
+    id: "162",
+    domain: "Security and Compliance",
+    difficulty: "advanced",
+    scenario:
+      "What is the main difference between Security Groups and Network ACLs in a VPC?",
+    options: [
+      "Security Groups are stateful and NACLs are stateless",
+      "Security Groups operate at subnet level and NACLs at instance level",
+      "Security Groups support deny rules and NACLs only support allow rules",
+      "Security Groups apply to all resources and NACLs only to EC2",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "Security Groups are stateful - return traffic is automatically allowed regardless of rules. Network ACLs are stateless - you must explicitly configure both inbound and outbound rules. This is the fundamental difference that impacts how you configure rules for bidirectional traffic.",
+    incorrectExplanations: [
+      "Security Groups operate at instance level, NACLs at subnet level (opposite of stated).",
+      "Security Groups only support allow rules; NACLs support both allow and deny rules (opposite of stated).",
+      "Security Groups apply to ENIs/instances; NACLs apply to entire subnets.",
+    ],
+    relatedServices: ["VPC", "Security Groups", "Network ACL"],
+    tags: ["security", "networking", "vpc", "security-groups", "nacl"],
+  },
+  {
+    id: "163",
+    domain: "Security and Compliance",
+    difficulty: "advanced",
+    scenario:
+      "A company wants to enforce that EC2 instances cannot be launched without encryption in a specific AWS account. Which service should they use?",
+    options: ["AWS Config Rules", "AWS Organizations Service Control Policies (SCPs)", "IAM Policies", "AWS Systems Manager"],
+    correctAnswer: 1,
+    explanation:
+      "Service Control Policies (SCPs) in AWS Organizations set permission guardrails for all accounts in the organization. An SCP can deny the launch of unencrypted EC2 instances across the entire account, overriding any IAM permissions. SCPs are the most effective way to enforce organizational policies.",
+    incorrectExplanations: [
+      "Config Rules detect non-compliant resources after creation but don't prevent the action.",
+      "IAM Policies control individual user/role permissions but can be overridden by account admins; SCPs provide account-level enforcement.",
+      "Systems Manager manages and patches instances but doesn't enforce launch policies.",
+    ],
+    relatedServices: ["Organizations", "SCP", "IAM"],
+    tags: ["security", "organizations", "scp", "governance"],
+  },
+  {
+    id: "164",
+    domain: "Security and Compliance",
+    difficulty: "intermediate",
+    scenario:
+      "According to the AWS Shared Responsibility Model, which of the following is AWS responsible for? (Select TWO)",
+    options: [
+      "Patching EC2 instance operating systems",
+      "Physical security of data centers",
+      "Encrypting data at rest in S3",
+      "Managing the hypervisor layer",
+      "Configuring security groups",
+    ],
+    correctAnswer: [1, 3],
+    isMultiSelect: true,
+    selectCount: 2,
+    explanation:
+      "AWS is responsible for security 'of' the cloud including physical infrastructure (data centers, hardware) and the virtualization layer (hypervisor). AWS maintains physical security, manages hardware lifecycle, and ensures the underlying infrastructure is secure.",
+    incorrectExplanations: [
+      "Patching guest OS on EC2 is customer responsibility (AWS patches RDS/managed services).",
+      "While AWS provides encryption tools, choosing to encrypt S3 data is customer responsibility.",
+      "Configuring security groups is customer responsibility - AWS provides the service.",
+    ],
+    relatedServices: ["Shared Responsibility Model"],
+    tags: ["security", "shared-responsibility", "compliance"],
+  },
+  {
+    id: "165",
+    domain: "Security and Compliance",
+    difficulty: "intermediate",
+    scenario:
+      "A company needs to automatically discover and protect sensitive data like credit card numbers in S3 buckets. Which service should they use?",
+    options: ["AWS Secrets Manager", "Amazon Macie", "Amazon GuardDuty", "AWS Security Hub"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon Macie uses machine learning to automatically discover, classify, and protect sensitive data in S3. It recognizes PII (Personally Identifiable Information) including credit card numbers, SSNs, and API keys, then provides dashboards and alerts for data security.",
+    incorrectExplanations: [
+      "Secrets Manager stores and rotates secrets like passwords, not discovering sensitive data in S3.",
+      "GuardDuty detects threats and malicious activity, not sensitive data classification.",
+      "Security Hub aggregates findings from other services but doesn't discover sensitive data itself.",
+    ],
+    relatedServices: ["Macie", "S3", "Data Protection"],
+    tags: ["security", "macie", "data-protection", "pii"],
+  },
+  {
+    id: "166",
+    domain: "Security and Compliance",
+    difficulty: "advanced",
+    scenario:
+      "What is an IAM policy permission boundary used for?",
+    options: [
+      "To grant permissions to IAM users and roles",
+      "To set the maximum permissions an IAM entity can have",
+      "To define resource-based access policies",
+      "To create temporary security credentials",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "Permission boundaries set the maximum permissions that an identity-based policy can grant to an IAM entity. Even if a user has an identity policy granting full access, the permission boundary limits what they can actually do. This is useful for delegating user creation while maintaining security controls.",
+    incorrectExplanations: [
+      "Identity-based policies grant permissions; boundaries only restrict them.",
+      "Resource-based policies are attached to resources (like S3 buckets), not IAM entities.",
+      "STS creates temporary credentials, not permission boundaries.",
+    ],
+    relatedServices: ["IAM", "Permission Boundaries"],
+    tags: ["security", "iam", "permission-boundaries", "delegation"],
+  },
+  {
+    id: "167",
+    domain: "Security and Compliance",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS service provides centralized security findings from GuardDuty, Inspector, Macie, and other security services?",
+    options: ["AWS Config", "AWS Security Hub", "Amazon Detective", "AWS CloudTrail"],
+    correctAnswer: 1,
+    explanation:
+      "AWS Security Hub provides a comprehensive view of security alerts and compliance status across AWS accounts. It aggregates, organizes, and prioritizes findings from GuardDuty, Inspector, Macie, IAM Access Analyzer, and third-party tools into a single dashboard.",
+    incorrectExplanations: [
+      "Config tracks resource configurations, not security findings.",
+      "Detective helps investigate security findings but doesn't aggregate them from multiple services.",
+      "CloudTrail logs API calls but doesn't aggregate security findings.",
+    ],
+    relatedServices: ["Security Hub", "GuardDuty", "Inspector", "Macie"],
+    tags: ["security", "security-hub", "centralized-management"],
+  },
+  {
+    id: "168",
+    domain: "Security and Compliance",
+    difficulty: "intermediate",
+    scenario:
+      "A company wants to conduct penetration testing on their AWS infrastructure. What must they do first?",
+    options: [
+      "Request permission from AWS Support",
+      "Nothing - penetration testing is allowed for most AWS services",
+      "Contact law enforcement",
+      "Purchase AWS Shield Advanced",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "AWS allows penetration testing on your own AWS resources without prior approval for most services including EC2, RDS, CloudFront, Aurora, API Gateway, Lambda, Lightsail, and Elastic Beanstalk. You must follow AWS Customer Support Policy for Penetration Testing and not perform prohibited activities like DDoS simulation.",
+    incorrectExplanations: [
+      "Prior AWS approval is no longer required since 2019 for most services.",
+      "Law enforcement notification is not required for testing your own infrastructure.",
+      "Shield Advanced is for DDoS protection, not penetration testing authorization.",
+    ],
+    relatedServices: ["Security", "Compliance"],
+    tags: ["security", "penetration-testing", "compliance"],
+  },
+  {
+    id: "169",
+    domain: "Security and Compliance",
+    difficulty: "advanced",
+    scenario:
+      "Which combination provides the BEST protection against DDoS attacks for a web application?",
+    options: [
+      "AWS WAF + Security Groups",
+      "AWS Shield Standard + AWS WAF + Amazon CloudFront",
+      "Network ACLs + AWS Config",
+      "Amazon GuardDuty + AWS Inspector",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "AWS Shield Standard (free, automatic) protects against common Layer 3/4 attacks. AWS WAF protects against Layer 7 (application layer) attacks like SQL injection and XSS. CloudFront distributes traffic globally and works with Shield for DDoS protection. Together they provide comprehensive multi-layer DDoS protection.",
+    incorrectExplanations: [
+      "Security Groups don't provide DDoS protection; they're for basic firewall rules.",
+      "NACLs and Config provide basic security but no DDoS-specific protection.",
+      "GuardDuty and Inspector detect threats but don't prevent DDoS attacks.",
+    ],
+    relatedServices: ["Shield", "WAF", "CloudFront"],
+    tags: ["security", "ddos", "shield", "waf", "multi-select"],
+  },
+  {
+    id: "170",
+    domain: "Security and Compliance",
+    difficulty: "intermediate",
+    scenario:
+      "A developer accidentally committed AWS access keys to a public GitHub repository. What is the BEST immediate action?",
+    options: [
+      "Delete the GitHub repository",
+      "Rotate the exposed access keys immediately",
+      "Enable MFA on the root account",
+      "Create a new AWS account",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "Immediately rotate (deactivate and replace) the exposed access keys to prevent unauthorized access. AWS monitors public repositories and may quarantine your account if credentials are detected. After rotation, review CloudTrail logs for unauthorized activity and implement secrets management practices.",
+    incorrectExplanations: [
+      "Deleting the repo doesn't revoke the keys; they're already exposed and may be cached.",
+      "MFA on root is good practice but doesn't address the exposed IAM access keys.",
+      "Creating a new account is excessive; rotating the keys resolves the immediate threat.",
+    ],
+    relatedServices: ["IAM", "Access Keys", "Security"],
+    tags: ["security", "iam", "access-keys", "incident-response"],
+  },
+  {
+    id: "171",
+    domain: "Security and Compliance",
+    difficulty: "advanced",
+    scenario:
+      "Which AWS service helps ensure EC2 instances are compliant with security best practices by assessing vulnerabilities?",
+    options: ["AWS Config", "Amazon Inspector", "Amazon GuardDuty", "AWS Systems Manager"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon Inspector automatically assesses EC2 instances, container images, and Lambda functions for software vulnerabilities and unintended network exposure. It provides a risk score for each finding and recommends remediation steps, making it ideal for vulnerability management.",
+    incorrectExplanations: [
+      "Config tracks configuration compliance but doesn't scan for software vulnerabilities.",
+      "GuardDuty detects threats and malicious activity but doesn't assess vulnerability compliance.",
+      "Systems Manager patches instances but doesn't assess vulnerabilities like Inspector does.",
+    ],
+    relatedServices: ["Inspector", "EC2", "Security"],
+    tags: ["security", "inspector", "vulnerability-scanning", "compliance"],
+  },
+  {
+    id: "172",
+    domain: "Security and Compliance",
+    difficulty: "intermediate",
+    scenario:
+      "What is the primary purpose of AWS CloudTrail?",
+    options: [
+      "Monitor application performance",
+      "Log and monitor AWS API calls for governance and compliance",
+      "Encrypt data at rest",
+      "Provide network traffic analysis",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "AWS CloudTrail logs all API calls made in your AWS account, including who made the call, when, from what IP, and what actions were performed. This provides an audit trail for security analysis, compliance auditing, and operational troubleshooting. CloudTrail is essential for governance and forensic investigation.",
+    incorrectExplanations: [
+      "CloudWatch monitors performance; CloudTrail logs API activity.",
+      "KMS encrypts data; CloudTrail logs access to encryption keys but doesn't encrypt.",
+      "VPC Flow Logs analyze network traffic; CloudTrail logs API calls.",
+    ],
+    relatedServices: ["CloudTrail", "CloudWatch", "Compliance"],
+    tags: ["security", "cloudtrail", "audit", "compliance"],
+  },
+  {
+    id: "173",
+    domain: "Security and Compliance",
+    difficulty: "advanced",
+    scenario:
+      "A company needs to ensure all EBS volumes are encrypted across their AWS Organization. What combination achieves this? (Select TWO)",
+    options: [
+      "Enable default encryption for new EBS volumes",
+      "Use AWS Config to detect unencrypted volumes",
+      "Use Security Groups to block unencrypted volumes",
+      "Use AWS Certificate Manager",
+      "Use Service Control Policies to prevent unencrypted volumes",
+    ],
+    correctAnswer: [0, 4],
+    isMultiSelect: true,
+    selectCount: 2,
+    explanation:
+      "Enable default EBS encryption at the account level to automatically encrypt all new volumes. Use Service Control Policies (SCPs) to prevent creation of unencrypted volumes organization-wide by denying ec2:RunInstances without encryption. This combination provides both automatic encryption and enforcement.",
+    incorrectExplanations: [
+      "Config can detect violations after creation but doesn't enforce or encrypt automatically.",
+      "Security Groups control network traffic, not encryption enforcement.",
+      "Certificate Manager manages SSL/TLS certificates, not EBS encryption.",
+    ],
+    relatedServices: ["EBS", "KMS", "Organizations", "SCP"],
+    tags: ["security", "encryption", "ebs", "organizations", "multi-select"],
+  },
+  {
+    id: "174",
+    domain: "Security and Compliance",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS service should you use to manage SSL/TLS certificates for your application load balancers?",
+    options: ["AWS KMS", "AWS Certificate Manager (ACM)", "AWS Secrets Manager", "AWS IAM"],
+    correctAnswer: 1,
+    explanation:
+      "AWS Certificate Manager (ACM) provisions, manages, and deploys public and private SSL/TLS certificates for use with AWS services like ALB, CloudFront, and API Gateway. ACM handles certificate renewal automatically and integrates seamlessly with load balancers.",
+    incorrectExplanations: [
+      "KMS manages encryption keys, not SSL/TLS certificates.",
+      "Secrets Manager stores application secrets like passwords, not certificates.",
+      "IAM can store certificates but doesn't provide automated renewal like ACM.",
+    ],
+    relatedServices: ["ACM", "ALB", "CloudFront"],
+    tags: ["security", "acm", "certificates", "ssl-tls"],
+  },
+  // PRIORITY 1: STORAGE (15 questions) - Critical Gap
+  {
+    id: "175",
+    domain: "Storage and Encryption",
+    difficulty: "intermediate",
+    scenario:
+      "A company has data that is rarely accessed but must be retained for 7 years for compliance. Retrieval times of 12 hours are acceptable. Which S3 storage class is MOST cost-effective?",
+    options: ["S3 Standard-IA", "S3 One Zone-IA", "S3 Glacier Deep Archive", "S3 Glacier Flexible Retrieval"],
+    correctAnswer: 2,
+    explanation:
+      "S3 Glacier Deep Archive is the lowest-cost storage class designed for long-term archival of data accessed once or twice per year. With retrieval times of 12-48 hours and the lowest storage cost, it's ideal for compliance archives where retrieval is rare and 12-hour retrieval is acceptable.",
+    incorrectExplanations: [
+      "Standard-IA is for infrequent access but costs more than Glacier for rarely accessed data.",
+      "One Zone-IA lacks durability of other classes and costs more than Glacier Deep Archive.",
+      "Glacier Flexible Retrieval is cheaper than IA classes but more expensive than Deep Archive for this use case.",
+    ],
+    relatedServices: ["S3", "Glacier", "Storage Classes"],
+    tags: ["storage", "s3", "glacier", "deep-archive", "cost-optimization"],
+  },
+  {
+    id: "176",
+    domain: "Storage and Encryption",
+    difficulty: "advanced",
+    scenario:
+      "What S3 feature automatically transitions objects between storage classes based on access patterns?",
+    options: ["S3 Lifecycle Policies", "S3 Intelligent-Tiering", "S3 Replication", "S3 Versioning"],
+    correctAnswer: 1,
+    explanation:
+      "S3 Intelligent-Tiering automatically moves objects between access tiers (Frequent, Infrequent, Archive, Deep Archive) based on changing access patterns. It monitors access and moves objects automatically, optimizing costs without retrieval fees or operational overhead.",
+    incorrectExplanations: [
+      "Lifecycle Policies transition based on time/rules you define, not automatic access pattern monitoring.",
+      "Replication copies objects to another region or bucket, doesn't change storage classes based on access.",
+      "Versioning keeps multiple versions of objects but doesn't manage storage classes.",
+    ],
+    relatedServices: ["S3", "Intelligent-Tiering"],
+    tags: ["storage", "s3", "intelligent-tiering", "cost-optimization"],
+  },
+  {
+    id: "177",
+    domain: "Storage and Encryption",
+    difficulty: "intermediate",
+    scenario:
+      "A company wants to automatically transition S3 objects to Glacier after 90 days and delete them after 7 years. What should they use?",
+    options: ["S3 Intelligent-Tiering", "S3 Lifecycle Policies", "S3 Object Lock", "AWS Backup"],
+    correctAnswer: 1,
+    explanation:
+      "S3 Lifecycle Policies allow you to define rules for transitioning objects between storage classes and deleting objects after specified time periods. You can create a policy to transition to Glacier after 90 days and expire (delete) objects after 7 years automatically.",
+    incorrectExplanations: [
+      "Intelligent-Tiering moves based on access patterns, not fixed time periods.",
+      "Object Lock prevents deletion for compliance but doesn't automate transitions or deletion.",
+      "AWS Backup manages backups but doesn't control S3 lifecycle transitions.",
+    ],
+    relatedServices: ["S3", "Lifecycle Policies", "Glacier"],
+    tags: ["storage", "s3", "lifecycle", "automation"],
+  },
+  {
+    id: "178",
+    domain: "Storage and Encryption",
+    difficulty: "advanced",
+    scenario:
+      "What is the difference between S3 Cross-Region Replication (CRR) and Same-Region Replication (SRR)?",
+    options: [
+      "CRR replicates to different region, SRR within same region for compliance/lower latency",
+      "CRR is automatic, SRR requires manual configuration",
+      "CRR is free, SRR has data transfer costs",
+      "CRR replicates metadata only, SRR replicates full objects",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "Cross-Region Replication (CRR) replicates objects to buckets in different AWS Regions for disaster recovery and compliance. Same-Region Replication (SRR) replicates within the same region to aggregate logs, replicate between production and test accounts, or meet data sovereignty requirements with lower latency.",
+    incorrectExplanations: [
+      "Both CRR and SRR require configuration; neither is automatic by default.",
+      "Both have costs; CRR has cross-region data transfer costs, SRR has same-region costs.",
+      "Both replicate full objects including metadata; no metadata-only replication.",
+    ],
+    relatedServices: ["S3", "CRR", "SRR", "Replication"],
+    tags: ["storage", "s3", "replication", "crr", "srr"],
+  },
+  {
+    id: "179",
+    domain: "Storage and Encryption",
+    difficulty: "intermediate",
+    scenario:
+      "Which S3 feature prevents accidental deletion of objects by keeping multiple versions of each object?",
+    options: ["S3 Object Lock", "S3 Versioning", "S3 Lifecycle Policies", "S3 MFA Delete"],
+    correctAnswer: 1,
+    explanation:
+      "S3 Versioning keeps multiple versions of an object in the same bucket. When you delete an object, S3 inserts a delete marker instead of removing it, allowing you to restore previous versions. This protects against accidental deletions and allows rollback to previous versions.",
+    incorrectExplanations: [
+      "Object Lock prevents deletion for a retention period (WORM model) but doesn't keep versions automatically.",
+      "Lifecycle Policies manage object transitions and expiration, don't prevent deletion.",
+      "MFA Delete requires MFA for deleting versions but doesn't keep versions; it's used with Versioning.",
+    ],
+    relatedServices: ["S3", "Versioning"],
+    tags: ["storage", "s3", "versioning", "data-protection"],
+  },
+  {
+    id: "180",
+    domain: "Storage and Encryption",
+    difficulty: "advanced",
+    scenario:
+      "A company needs to transfer 80TB of data to AWS for initial migration. Upload over internet would take weeks. Which AWS service is MOST appropriate?",
+    options: ["AWS Direct Connect", "AWS DataSync", "AWS Snowball", "S3 Transfer Acceleration"],
+    correctAnswer: 2,
+    explanation:
+      "AWS Snowball is a petabyte-scale data transfer device for moving large amounts of data (50-80TB per device) into AWS when network transfer is impractical. You copy data to the device on-premises, ship it to AWS, and AWS uploads to S3. For 80TB, Snowball is faster and more cost-effective than internet transfer.",
+    incorrectExplanations: [
+      "Direct Connect provides dedicated network connection but doesn't solve the initial large transfer problem.",
+      "DataSync transfers data online; for 80TB, physical transfer via Snowball is faster.",
+      "Transfer Acceleration speeds up S3 uploads but still uses internet; not practical for 80TB initial migration.",
+    ],
+    relatedServices: ["Snowball", "Snow Family", "Migration"],
+    tags: ["storage", "migration", "snowball", "data-transfer"],
+  },
+  {
+    id: "181",
+    domain: "Storage and Encryption",
+    difficulty: "intermediate",
+    scenario:
+      "What is the largest AWS Snow Family device for exabyte-scale data transfer?",
+    options: ["AWS Snowcone", "AWS Snowball", "AWS Snowmobile", "AWS DataSync"],
+    correctAnswer: 2,
+    explanation:
+      "AWS Snowmobile is a 45-foot shipping container truck that can transfer up to 100PB of data (exabyte-scale). It's for the largest data migrations like data center shutdowns. AWS drives the truck to your location, connects it to your network, you transfer data, then AWS transports it to an AWS region.",
+    incorrectExplanations: [
+      "Snowcone is the smallest device (8-14TB), for edge computing and small transfers.",
+      "Snowball handles 50-80TB; much smaller than Snowmobile.",
+      "DataSync is software for online data transfer, not a physical device.",
+    ],
+    relatedServices: ["Snowmobile", "Snow Family"],
+    tags: ["storage", "migration", "snowmobile", "exabyte"],
+  },
+  {
+    id: "182",
+    domain: "Storage and Encryption",
+    difficulty: "advanced",
+    scenario:
+      "A company needs to integrate on-premises applications with cloud storage while caching frequently accessed data locally. Which service is appropriate?",
+    options: ["AWS Direct Connect", "AWS Storage Gateway", "AWS DataSync", "Amazon EFS"],
+    correctAnswer: 1,
+    explanation:
+      "AWS Storage Gateway is a hybrid cloud storage service that connects on-premises applications to AWS storage (S3, EBS, FSx) with local caching. File Gateway, Volume Gateway, and Tape Gateway variants provide seamless integration while caching hot data on-premises for low-latency access.",
+    incorrectExplanations: [
+      "Direct Connect provides network connectivity but doesn't cache data locally.",
+      "DataSync transfers data between on-premises and AWS but doesn't provide application integration or caching.",
+      "EFS is cloud-native file storage; Storage Gateway provides the hybrid integration and caching.",
+    ],
+    relatedServices: ["Storage Gateway", "Hybrid Cloud"],
+    tags: ["storage", "hybrid", "storage-gateway", "caching"],
+  },
+  {
+    id: "183",
+    domain: "Storage and Encryption",
+    difficulty: "advanced",
+    scenario:
+      "Which Storage Gateway type presents cloud storage as iSCSI block volumes for on-premises applications?",
+    options: ["File Gateway", "Volume Gateway", "Tape Gateway", "S3 Gateway"],
+    correctAnswer: 1,
+    explanation:
+      "Volume Gateway presents cloud-backed iSCSI block storage volumes to on-premises applications. It provides cached volumes (primary storage in AWS with local cache) or stored volumes (primary storage on-premises with async backup to AWS), ideal for applications requiring block storage.",
+    incorrectExplanations: [
+      "File Gateway presents S3 as NFS/SMB file shares, not block storage.",
+      "Tape Gateway emulates physical tape libraries for backup applications.",
+      "S3 Gateway isn't a Storage Gateway type; File Gateway uses S3.",
+    ],
+    relatedServices: ["Storage Gateway", "Volume Gateway", "iSCSI"],
+    tags: ["storage", "storage-gateway", "volume-gateway", "iscsi"],
+  },
+  {
+    id: "184",
+    domain: "Storage and Encryption",
+    difficulty: "intermediate",
+    scenario:
+      "A Windows application requires shared file storage accessible from multiple EC2 instances. Which service is MOST appropriate?",
+    options: ["Amazon EBS", "Amazon EFS", "Amazon FSx for Windows File Server", "Amazon S3"],
+    correctAnswer: 2,
+    explanation:
+      "Amazon FSx for Windows File Server provides fully managed Windows-native shared file storage built on Windows Server with SMB protocol, NTFS, and Active Directory integration. It's designed for Windows applications requiring shared file storage, unlike EFS which is for Linux.",
+    incorrectExplanations: [
+      "EBS is block storage attached to single instance, not shared file storage.",
+      "EFS is designed for Linux workloads using NFS protocol, not Windows SMB.",
+      "S3 is object storage, not file system storage with Windows features.",
+    ],
+    relatedServices: ["FSx", "Windows File Server", "Storage"],
+    tags: ["storage", "fsx", "windows", "shared-storage"],
+  },
+  {
+    id: "185",
+    domain: "Storage and Encryption",
+    difficulty: "advanced",
+    scenario:
+      "Which FSx file system is optimized for high-performance computing workloads processing massive datasets?",
+    options: ["FSx for Windows File Server", "FSx for Lustre", "FSx for NetApp ONTAP", "FSx for OpenZFS"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon FSx for Lustre provides high-performance file systems optimized for HPC, machine learning, and media processing. It delivers sub-millisecond latencies, up to hundreds of GB/s throughput, and millions of IOPS. It can integrate with S3 for processing large datasets.",
+    incorrectExplanations: [
+      "FSx for Windows is for Windows applications, not optimized for HPC.",
+      "FSx for NetApp ONTAP provides NetApp features but not Lustre's HPC performance.",
+      "FSx for OpenZFS provides ZFS features but not specialized for HPC like Lustre.",
+    ],
+    relatedServices: ["FSx", "Lustre", "HPC"],
+    tags: ["storage", "fsx", "lustre", "hpc"],
+  },
+  {
+    id: "186",
+    domain: "Storage and Encryption",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS service automates data transfer between on-premises storage and AWS with bandwidth throttling and data validation?",
+    options: ["AWS Storage Gateway", "AWS DataSync", "AWS Transfer Family", "AWS Direct Connect"],
+    correctAnswer: 1,
+    explanation:
+      "AWS DataSync is purpose-built for automating data transfers between on-premises and AWS (or between AWS storage services) with up to 10x faster speeds than open-source tools. It includes data validation, bandwidth throttling, scheduling, and encryption, ideal for migrations and periodic transfers.",
+    incorrectExplanations: [
+      "Storage Gateway provides hybrid storage access, not automated bulk transfers.",
+      "Transfer Family provides SFTP/FTPS/FTP servers for file transfers, not automated data sync.",
+      "Direct Connect provides network connectivity but doesn't automate data transfer.",
+    ],
+    relatedServices: ["DataSync", "Migration"],
+    tags: ["storage", "datasync", "migration", "automation"],
+  },
+  {
+    id: "187",
+    domain: "Storage and Encryption",
+    difficulty: "advanced",
+    scenario:
+      "A company needs centralized backup management across EC2, EBS, RDS, DynamoDB, and on-premises with compliance reporting. What should they use?",
+    options: ["AWS Backup", "EBS Snapshots", "RDS Automated Backups", "AWS Storage Gateway"],
+    correctAnswer: 0,
+    explanation:
+      "AWS Backup provides centralized backup management across AWS services (EC2, EBS, RDS, DynamoDB, EFS, FSx, Storage Gateway) with policy-based backup schedules, retention, lifecycle, and compliance reporting. It simplifies backup management compared to using each service's individual backup features.",
+    incorrectExplanations: [
+      "EBS Snapshots only backup EBS volumes, not other services or centralized management.",
+      "RDS Automated Backups only backup RDS databases, not a centralized solution.",
+      "Storage Gateway enables hybrid storage but isn't a backup management service.",
+    ],
+    relatedServices: ["AWS Backup", "Backup Management"],
+    tags: ["storage", "backup", "disaster-recovery", "compliance"],
+  },
+  {
+    id: "188",
+    domain: "Storage and Encryption",
+    difficulty: "intermediate",
+    scenario:
+      "What S3 feature can accelerate uploads and downloads by using CloudFront's edge locations?",
+    options: ["S3 Multipart Upload", "S3 Transfer Acceleration", "S3 Cross-Region Replication", "S3 Intelligent-Tiering"],
+    correctAnswer: 1,
+    explanation:
+      "S3 Transfer Acceleration uses CloudFront's globally distributed edge locations to accelerate uploads to S3. Data arrives at an edge location and is routed to S3 over optimized network paths, providing up to 50-500% faster transfers for long-distance uploads.",
+    incorrectExplanations: [
+      "Multipart Upload improves large file uploads by parallelization but doesn't use edge locations.",
+      "CRR replicates data between regions after upload, doesn't accelerate initial upload.",
+      "Intelligent-Tiering optimizes storage costs, not transfer speeds.",
+    ],
+    relatedServices: ["S3", "Transfer Acceleration", "CloudFront"],
+    tags: ["storage", "s3", "transfer-acceleration", "performance"],
+  },
+  {
+    id: "189",
+    domain: "Storage and Encryption",
+    difficulty: "intermediate",
+    scenario:
+      "Which EBS volume type provides the highest IOPS performance for mission-critical databases?",
+    options: ["General Purpose SSD (gp3)", "Provisioned IOPS SSD (io2)", "Throughput Optimized HDD (st1)", "Cold HDD (sc1)"],
+    correctAnswer: 1,
+    explanation:
+      "Provisioned IOPS SSD (io2/io2 Block Express) provides the highest performance with up to 64,000 IOPS and 99.999% durability. It's designed for mission-critical applications, I/O-intensive databases, and workloads requiring sustained IOPS performance with low latency.",
+    incorrectExplanations: [
+      "gp3 provides good performance (16,000 IOPS) but io2 delivers higher IOPS for critical workloads.",
+      "st1 is HDD optimized for throughput, not IOPS-intensive workloads.",
+      "sc1 is lowest-cost HDD for infrequently accessed data, not high-performance.",
+    ],
+    relatedServices: ["EBS", "io2", "Storage"],
+    tags: ["storage", "ebs", "iops", "performance"],
+  },
+  // PRIORITY 1: NETWORKING (10 questions)
+  {
+    id: "190",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "A company needs to route HTTP/HTTPS traffic to multiple target groups based on URL path (e.g., /api, /images). Which load balancer should they use?",
+    options: ["Classic Load Balancer", "Network Load Balancer", "Application Load Balancer", "Gateway Load Balancer"],
+    correctAnswer: 2,
+    explanation:
+      "Application Load Balancer (ALB) operates at Layer 7 (HTTP/HTTPS) and supports content-based routing including path-based routing, host-based routing, and query string routing. It can route requests to different target groups based on URL paths, making it ideal for microservices.",
+    incorrectExplanations: [
+      "Classic Load Balancer is legacy and doesn't support advanced routing features.",
+      "Network Load Balancer operates at Layer 4 (TCP/UDP) and doesn't inspect HTTP content for routing.",
+      "Gateway Load Balancer is for deploying third-party virtual appliances, not web traffic routing.",
+    ],
+    relatedServices: ["ALB", "ELB", "Load Balancing"],
+    tags: ["networking", "alb", "load-balancing", "layer-7"],
+  },
+  {
+    id: "191",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "Which load balancer provides ultra-low latency and handles millions of requests per second while preserving source IP addresses?",
+    options: ["Application Load Balancer", "Network Load Balancer", "Classic Load Balancer", "Gateway Load Balancer"],
+    correctAnswer: 1,
+    explanation:
+      "Network Load Balancer (NLB) operates at Layer 4 (TCP/UDP/TLS) and provides extreme performance with ultra-low latency, handling millions of requests per second. It preserves the client's source IP address and supports static IP addresses via Elastic IPs, ideal for high-performance or static IP requirements.",
+    incorrectExplanations: [
+      "ALB operates at Layer 7 with slightly higher latency than NLB; doesn't preserve source IP by default.",
+      "Classic Load Balancer has lower performance than NLB and is legacy.",
+      "Gateway Load Balancer is for virtual appliance deployment, not general application traffic.",
+    ],
+    relatedServices: ["NLB", "ELB", "Load Balancing"],
+    tags: ["networking", "nlb", "load-balancing", "layer-4", "performance"],
+  },
+  {
+    id: "192",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which Route 53 routing policy routes traffic to multiple resources based on weights you assign?",
+    options: ["Simple routing", "Weighted routing", "Latency-based routing", "Failover routing"],
+    correctAnswer: 1,
+    explanation:
+      "Weighted routing policy allows you to associate multiple resources with a DNS name and specify a weight (0-255) for each. Route 53 routes traffic proportionally based on these weights, useful for load balancing, A/B testing, or gradual deployment rollouts.",
+    incorrectExplanations: [
+      "Simple routing returns all values in random order, no weight control.",
+      "Latency-based routing routes based on lowest network latency, not weights.",
+      "Failover routing routes to primary unless unhealthy, then to secondary.",
+    ],
+    relatedServices: ["Route 53", "DNS"],
+    tags: ["networking", "route-53", "weighted-routing", "traffic-management"],
+  },
+  {
+    id: "193",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which Route 53 routing policy should be used to route users to the endpoint with the lowest network latency?",
+    options: ["Geolocation routing", "Geoproximity routing", "Latency-based routing", "Weighted routing"],
+    correctAnswer: 2,
+    explanation:
+      "Latency-based routing routes users to the AWS region that provides the lowest latency. Route 53 measures latency between users and AWS regions, then routes each request to the region with best performance, improving user experience for global applications.",
+    incorrectExplanations: [
+      "Geolocation routing routes based on geographic location, not network latency.",
+      "Geoproximity routing routes based on physical distance and bias, not measured latency.",
+      "Weighted routing distributes traffic based on assigned weights, not latency.",
+    ],
+    relatedServices: ["Route 53", "DNS"],
+    tags: ["networking", "route-53", "latency-routing", "performance"],
+  },
+  {
+    id: "194",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "What is the main difference between AWS Direct Connect and AWS VPN?",
+    options: [
+      "Direct Connect uses dedicated private connection, VPN uses encrypted internet connection",
+      "Direct Connect is slower than VPN",
+      "Direct Connect requires AWS Shield, VPN doesn't",
+      "Direct Connect is only for S3, VPN is for all services",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "AWS Direct Connect establishes a dedicated private network connection from your premises to AWS, bypassing the internet for consistent network performance. AWS VPN creates encrypted connections over the public internet. Direct Connect offers more consistent bandwidth and lower latency but takes weeks to set up and costs more.",
+    incorrectExplanations: [
+      "Direct Connect is typically faster and more consistent than VPN over internet.",
+      "Neither requires Shield; Direct Connect provides private connection security without encryption overhead.",
+      "Both can access all AWS services; Direct Connect isn't limited to S3.",
+    ],
+    relatedServices: ["Direct Connect", "VPN", "Networking"],
+    tags: ["networking", "direct-connect", "vpn", "hybrid-connectivity"],
+  },
+  {
+    id: "195",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "A company has 20 VPCs that need to communicate with each other. What is the MOST scalable solution compared to VPC peering?",
+    options: ["AWS Direct Connect", "AWS Transit Gateway", "VPC Peering mesh", "AWS PrivateLink"],
+    correctAnswer: 1,
+    explanation:
+      "AWS Transit Gateway acts as a central hub connecting multiple VPCs and on-premises networks through a single gateway. It eliminates complex peering relationships (20 VPCs would require 190 peering connections in a mesh). Transit Gateway simplifies management, reduces operational overhead, and scales to thousands of VPCs.",
+    incorrectExplanations: [
+      "Direct Connect connects on-premises to AWS but doesn't simplify VPC-to-VPC connectivity.",
+      "VPC Peering mesh requires N*(N-1)/2 connections; doesn't scale well for many VPCs.",
+      "PrivateLink provides private access to services, not general VPC interconnection.",
+    ],
+    relatedServices: ["Transit Gateway", "VPC", "Networking"],
+    tags: ["networking", "transit-gateway", "vpc", "scalability"],
+  },
+  {
+    id: "196",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS service improves global application availability and performance by routing traffic through the AWS global network?",
+    options: ["Amazon CloudFront", "AWS Global Accelerator", "Amazon Route 53", "Elastic Load Balancing"],
+    correctAnswer: 1,
+    explanation:
+      "AWS Global Accelerator provides two static anycast IP addresses that route traffic through the AWS global network infrastructure to optimal endpoints. Unlike CloudFront (caching CDN), Global Accelerator improves performance for non-HTTP use cases (TCP/UDP) and provides instant failover and static IPs.",
+    incorrectExplanations: [
+      "CloudFront is a CDN that caches content; Global Accelerator improves routing for any protocol.",
+      "Route 53 provides DNS routing but Global Accelerator routes through AWS backbone network.",
+      "ELB distributes traffic within a region; Global Accelerator optimizes global routing.",
+    ],
+    relatedServices: ["Global Accelerator", "Networking"],
+    tags: ["networking", "global-accelerator", "performance", "availability"],
+  },
+  {
+    id: "197",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "A company wants to connect two VPCs in the same region to share resources. What is the SIMPLEST solution?",
+    options: ["AWS Transit Gateway", "VPC Peering", "AWS PrivateLink", "Internet Gateway"],
+    correctAnswer: 1,
+    explanation:
+      "VPC Peering creates a direct network connection between two VPCs allowing resources to communicate using private IP addresses. For connecting just two VPCs, peering is simpler and more cost-effective than Transit Gateway. It works across regions and accounts.",
+    incorrectExplanations: [
+      "Transit Gateway is better for multiple VPCs but adds complexity and cost for just two VPCs.",
+      "PrivateLink provides access to specific services, not general VPC-to-VPC communication.",
+      "Internet Gateway provides internet access, not private VPC-to-VPC connectivity.",
+    ],
+    relatedServices: ["VPC", "VPC Peering", "Networking"],
+    tags: ["networking", "vpc-peering", "vpc", "connectivity"],
+  },
+  {
+    id: "198",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which service distributes incoming application traffic across multiple targets in multiple Availability Zones?",
+    options: ["Amazon Route 53", "AWS Auto Scaling", "Elastic Load Balancing", "AWS Global Accelerator"],
+    correctAnswer: 2,
+    explanation:
+      "Elastic Load Balancing (ELB) automatically distributes incoming traffic across multiple targets (EC2 instances, containers, IP addresses) in one or more Availability Zones. ELB performs health checks and only routes to healthy targets, increasing application fault tolerance.",
+    incorrectExplanations: [
+      "Route 53 provides DNS routing to different regions, not load balancing within a region.",
+      "Auto Scaling launches/terminates instances but doesn't distribute traffic; works with ELB.",
+      "Global Accelerator routes traffic globally through AWS network but doesn't replace regional load balancing.",
+    ],
+    relatedServices: ["ELB", "ALB", "NLB"],
+    tags: ["networking", "elb", "load-balancing", "high-availability"],
+  },
+  {
+    id: "199",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "What Route 53 routing policy routes traffic based on the geographic location of users?",
+    options: ["Latency-based routing", "Geolocation routing", "Geoproximity routing", "Multivalue answer routing"],
+    correctAnswer: 1,
+    explanation:
+      "Geolocation routing routes traffic based on the geographic location of your users (continent, country, or state). Use cases include content localization, restricting content distribution, and load balancing predictably. It's based on user location, not proximity to resources.",
+    incorrectExplanations: [
+      "Latency-based routing uses measured latency, not geographic location.",
+      "Geoproximity routing uses geographic location AND bias to shift traffic, with more granular control.",
+      "Multivalue answer routing returns multiple healthy IP addresses randomly, not based on location.",
+    ],
+    relatedServices: ["Route 53", "DNS"],
+    tags: ["networking", "route-53", "geolocation", "routing"],
+  },
+  // PRIORITY 1: ANALYTICS (8 questions) - Almost No Coverage
+  {
+    id: "200",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "A company wants to analyze data stored in S3 using standard SQL queries without moving the data. Which service should they use?",
+    options: ["Amazon Redshift", "Amazon Athena", "Amazon EMR", "AWS Glue"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon Athena is a serverless interactive query service that analyzes data directly in S3 using standard SQL. You don't need to load data or manage infrastructure - just point Athena at your S3 data, define schema, and start querying. You pay only for queries run.",
+    incorrectExplanations: [
+      "Redshift is a data warehouse requiring data loading; not for querying data in-place in S3.",
+      "EMR processes big data using Hadoop/Spark but requires cluster management.",
+      "Glue is an ETL service for preparing and transforming data, not querying.",
+    ],
+    relatedServices: ["Athena", "S3", "Analytics"],
+    tags: ["analytics", "athena", "sql", "serverless"],
+  },
+  {
+    id: "201",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS service provides business intelligence dashboards and visualizations?",
+    options: ["Amazon Athena", "Amazon QuickSight", "AWS Glue", "Amazon CloudWatch"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon QuickSight is a cloud-native business intelligence service for creating interactive dashboards and visualizations. It connects to various data sources (RDS, Redshift, Athena, S3), uses machine learning for insights, and allows sharing dashboards with users at scale.",
+    incorrectExplanations: [
+      "Athena queries data but doesn't create dashboards; QuickSight visualizes Athena results.",
+      "Glue prepares data for analysis but doesn't create visualizations.",
+      "CloudWatch monitors AWS resources, not a BI tool for business data visualization.",
+    ],
+    relatedServices: ["QuickSight", "BI", "Analytics"],
+    tags: ["analytics", "quicksight", "bi", "dashboards"],
+  },
+  {
+    id: "202",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "A company needs to ingest, process, and analyze real-time streaming data from thousands of IoT devices. Which service is MOST appropriate?",
+    options: ["Amazon SQS", "Amazon Kinesis Data Streams", "AWS Lambda", "Amazon SNS"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon Kinesis Data Streams is designed for real-time data ingestion at scale from hundreds of thousands of sources. It continuously captures and stores streaming data (logs, IoT telemetry, clickstreams) with low latency, allowing real-time processing and analysis.",
+    incorrectExplanations: [
+      "SQS is for message queuing, not real-time streaming data collection and analysis.",
+      "Lambda processes data but doesn't collect/stream it; often used to process Kinesis streams.",
+      "SNS is for pub/sub notifications, not streaming data collection.",
+    ],
+    relatedServices: ["Kinesis", "Streaming", "IoT"],
+    tags: ["analytics", "kinesis", "streaming", "real-time", "iot"],
+  },
+  {
+    id: "203",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which Kinesis service loads streaming data into data stores like S3, Redshift, and Elasticsearch?",
+    options: ["Kinesis Data Streams", "Kinesis Data Firehose", "Kinesis Data Analytics", "Kinesis Video Streams"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon Kinesis Data Firehose is the easiest way to load streaming data into data stores and analytics services. It captures, transforms, and automatically loads data into S3, Redshift, Elasticsearch, or Splunk without writing code. It's fully managed with automatic scaling.",
+    incorrectExplanations: [
+      "Kinesis Data Streams captures data but requires you to write consumers to load into destinations.",
+      "Kinesis Data Analytics analyzes streaming data with SQL, doesn't load data.",
+      "Kinesis Video Streams captures video streams, not general data loading.",
+    ],
+    relatedServices: ["Kinesis", "Firehose", "Streaming"],
+    tags: ["analytics", "kinesis", "firehose", "data-loading"],
+  },
+  {
+    id: "204",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "A company wants to run SQL queries on streaming data in real-time to generate alerts. Which service should they use?",
+    options: ["Kinesis Data Streams", "Kinesis Data Firehose", "Kinesis Data Analytics", "Amazon Athena"],
+    correctAnswer: 2,
+    explanation:
+      "Amazon Kinesis Data Analytics allows you to process and analyze streaming data in real-time using standard SQL. You can query data from Kinesis streams or Firehose, create alerts based on patterns, and send results to AWS services like Lambda for action.",
+    incorrectExplanations: [
+      "Kinesis Data Streams captures data but doesn't provide SQL query capability.",
+      "Kinesis Data Firehose delivers data but doesn't analyze or query it.",
+      "Athena queries static data in S3, not real-time streaming data.",
+    ],
+    relatedServices: ["Kinesis", "Data Analytics", "Streaming"],
+    tags: ["analytics", "kinesis", "real-time", "sql"],
+  },
+  {
+    id: "205",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS service is a fully managed ETL (Extract, Transform, Load) service for preparing data for analytics?",
+    options: ["AWS Glue", "Amazon Athena", "Amazon EMR", "AWS Data Pipeline"],
+    correctAnswer: 0,
+    explanation:
+      "AWS Glue is a serverless ETL service that discovers, catalogs, and transforms data for analytics. It automatically generates ETL code (Python/Scala), has a Data Catalog for metadata management, and integrates with Athena, Redshift, and EMR. It simplifies data preparation without managing infrastructure.",
+    incorrectExplanations: [
+      "Athena queries data but doesn't transform it for ETL purposes.",
+      "EMR processes big data but requires cluster management; Glue is serverless.",
+      "Data Pipeline orchestrates data workflows but is being replaced by Glue and Step Functions.",
+    ],
+    relatedServices: ["Glue", "ETL", "Analytics"],
+    tags: ["analytics", "glue", "etl", "data-preparation"],
+  },
+  {
+    id: "206",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "A company needs to process large datasets using Apache Spark and Hadoop. Which AWS service should they use?",
+    options: ["AWS Glue", "Amazon EMR", "Amazon Athena", "AWS Batch"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon EMR (Elastic MapReduce) is a managed big data platform for processing vast amounts of data using Apache Spark, Hadoop, HBase, Presto, and Flink. It handles cluster provisioning, configuration, and tuning while you focus on data processing. It's ideal for log analysis, machine learning, and data transformations.",
+    incorrectExplanations: [
+      "Glue is serverless ETL; EMR provides full big data framework support for complex processing.",
+      "Athena queries data but doesn't provide Spark/Hadoop frameworks for complex processing.",
+      "Batch runs batch computing jobs but doesn't provide big data frameworks.",
+    ],
+    relatedServices: ["EMR", "Spark", "Hadoop", "Big Data"],
+    tags: ["analytics", "emr", "big-data", "spark", "hadoop"],
+  },
+  {
+    id: "207",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which service provides machine learning-based forecasting for time series data like product demand or resource needs?",
+    options: ["Amazon SageMaker", "Amazon Forecast", "Amazon Comprehend", "Amazon Rekognition"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon Forecast uses machine learning to deliver highly accurate time series forecasts. You provide historical time series data and any additional variables, and Forecast automatically builds models for predictions like product demand, inventory needs, or workforce requirements.",
+    incorrectExplanations: [
+      "SageMaker is a general ML platform for building custom models; Forecast is purpose-built for time series.",
+      "Comprehend does natural language processing, not forecasting.",
+      "Rekognition analyzes images and videos, not time series forecasting.",
+    ],
+    relatedServices: ["Forecast", "Machine Learning"],
+    tags: ["analytics", "ml", "forecast", "time-series"],
+  },
+  // PRIORITY 2: DATABASES (6 questions)
+  {
+    id: "208",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS caching service provides an in-memory data store compatible with Redis and Memcached?",
+    options: ["Amazon DynamoDB", "Amazon RDS", "Amazon ElastiCache", "Amazon Aurora"],
+    correctAnswer: 2,
+    explanation:
+      "Amazon ElastiCache is a fully managed in-memory caching service supporting Redis and Memcached. It improves application performance by caching frequently accessed data, reducing database load. Use Redis for advanced features (persistence, pub/sub) or Memcached for simple caching.",
+    incorrectExplanations: [
+      "DynamoDB is a NoSQL database with optional DAX caching, not a general caching service.",
+      "RDS is a relational database, not an in-memory cache.",
+      "Aurora is a relational database; though fast, it's not an in-memory cache.",
+    ],
+    relatedServices: ["ElastiCache", "Redis", "Memcached"],
+    tags: ["database", "caching", "elasticache", "performance"],
+  },
+  {
+    id: "209",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "What is the difference between ElastiCache Redis and Memcached?",
+    options: [
+      "Redis supports persistence and complex data types, Memcached is simpler and multi-threaded",
+      "Memcached is faster than Redis in all scenarios",
+      "Redis only works with RDS, Memcached with DynamoDB",
+      "They are identical in features and use cases",
+    ],
+    correctAnswer: 0,
+    explanation:
+      "Redis supports data persistence, complex data types (lists, sets, sorted sets), pub/sub messaging, replication, and automatic failover. Memcached is simpler, multi-threaded for multi-core usage, and best for simple key-value caching with horizontal scaling. Choose Redis for advanced features, Memcached for simple distributed caching.",
+    incorrectExplanations: [
+      "Performance depends on use case; Memcached's multi-threading helps for simple caching at scale.",
+      "Neither is specific to RDS or DynamoDB; both work with any application.",
+      "They have different architectures and feature sets as described.",
+    ],
+    relatedServices: ["ElastiCache", "Redis", "Memcached"],
+    tags: ["database", "caching", "redis", "memcached", "comparison"],
+  },
+  {
+    id: "210",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS database service is designed for graph databases to store and query highly connected data?",
+    options: ["Amazon RDS", "Amazon DynamoDB", "Amazon Neptune", "Amazon DocumentDB"],
+    correctAnswer: 2,
+    explanation:
+      "Amazon Neptune is a fully managed graph database service supporting property graph (Gremlin) and RDF (SPARQL) query languages. It's optimized for storing and navigating relationships in highly connected datasets like social networks, recommendation engines, fraud detection, and knowledge graphs.",
+    incorrectExplanations: [
+      "RDS supports relational databases, not graph databases.",
+      "DynamoDB is a key-value/document NoSQL database, not optimized for graph queries.",
+      "DocumentDB is compatible with MongoDB for document data, not graph relationships.",
+    ],
+    relatedServices: ["Neptune", "Graph Database"],
+    tags: ["database", "neptune", "graph", "relationships"],
+  },
+  {
+    id: "211",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which database service provides MongoDB compatibility for document-oriented database workloads?",
+    options: ["Amazon DynamoDB", "Amazon DocumentDB", "Amazon RDS", "Amazon Neptune"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon DocumentDB is a fast, scalable, highly available document database service that's compatible with MongoDB APIs. It's designed for JSON data and MongoDB workloads, providing MongoDB compatibility while being fully managed by AWS with automatic backups and patching.",
+    incorrectExplanations: [
+      "DynamoDB is document-capable but doesn't provide MongoDB compatibility.",
+      "RDS supports relational databases (MySQL, PostgreSQL, etc.), not MongoDB.",
+      "Neptune is for graph databases, not document databases.",
+    ],
+    relatedServices: ["DocumentDB", "MongoDB"],
+    tags: ["database", "documentdb", "mongodb", "nosql"],
+  },
+  {
+    id: "212",
+    domain: "Cloud Technology and Services",
+    difficulty: "advanced",
+    scenario:
+      "A company needs a ledger database that provides an immutable, cryptographically verifiable transaction log. Which service is appropriate?",
+    options: ["Amazon RDS", "Amazon QLDB", "Amazon DynamoDB", "Amazon Aurora"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon QLDB (Quantum Ledger Database) is a purpose-built ledger database that provides a transparent, immutable, and cryptographically verifiable transaction log owned by a central authority. It tracks all application data changes with complete and verifiable history, ideal for systems of record like financial transactions.",
+    incorrectExplanations: [
+      "RDS is a general relational database without built-in cryptographic verification.",
+      "DynamoDB provides consistency but not cryptographically verifiable immutability.",
+      "Aurora is a relational database without ledger-specific features.",
+    ],
+    relatedServices: ["QLDB", "Ledger", "Blockchain"],
+    tags: ["database", "qldb", "ledger", "immutable"],
+  },
+  {
+    id: "213",
+    domain: "Cloud Technology and Services",
+    difficulty: "intermediate",
+    scenario:
+      "Which AWS database is optimized for storing and analyzing time-series data like IoT sensor data?",
+    options: ["Amazon RDS", "Amazon Timestream", "Amazon DynamoDB", "Amazon Redshift"],
+    correctAnswer: 1,
+    explanation:
+      "Amazon Timestream is a purpose-built time series database for IoT and operational applications. It stores and analyzes trillions of events per day at 1/10th the cost of relational databases. It automatically tiers data from memory to optimized storage and includes built-in time series analytics functions.",
+    incorrectExplanations: [
+      "RDS is general-purpose relational, not optimized for time series at scale.",
+      "DynamoDB can store time series but isn't optimized with time series query functions.",
+      "Redshift is for data warehousing, not real-time time series ingestion and analysis.",
+    ],
+    relatedServices: ["Timestream", "Time Series", "IoT"],
+    tags: ["database", "timestream", "time-series", "iot"],
+  },
 ]
